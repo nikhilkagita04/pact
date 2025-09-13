@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pact - Turn every "I'll remember" into "I did it"</title>
+    <meta name="description" content="Because the people you love deserve your best. Never let a promise slip away again with the smart app that helps you show up for what matters most.">
+    <meta name="theme-color" content="#4ade80">
+    <meta name="keywords" content="promise keeper, relationship app, reminder app, trust building, personal commitments, family app, friends app">
+    <meta name="author" content="Pact">
+    <meta property="og:title" content="Pact - Turn every 'I'll remember' into 'I did it'">
+    <meta property="og:description" content="Because the people you love deserve your best. The smart app that helps you show up for what matters most.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pact.app">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pact - Turn every 'I'll remember' into 'I did it'">
+    <meta name="twitter:description" content="Because the people you love deserve your best. Show up for what matters most.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Skip Links for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#hero-cta" class="skip-link">Skip to signup form</a>
+    
+    <!-- Hero Section -->
+    <section class="hero-section" id="main-content">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+            <div class="hero-particles"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="badge-icon">💝</span>
+                        <span class="badge-text">Now in Private Beta</span>
+                    </div>
+                    <h1 class="hero-headline">
+                        Turn every "I'll remember" into <span class="accent-text">"I did it"</span>
+                    </h1>
+                    <p class="hero-subheadline">
+                        Because the people you love deserve your best. The smart app that helps you show up 
+                        for what matters most – from "pick up roses" to "call tonight."
+                    </p>
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">💕</span>
+                            <span class="feature-text">Show up for family & friends</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✨</span>
+                            <span class="feature-text">Gentle, smart reminders</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🌟</span>
+                            <span class="feature-text">Strengthen every relationship</span>
+                        </div>
+                    </div>
+                    <div class="cta-form" id="hero-cta">
+                        <div class="email-input-container">
+                            <label for="email-hero" class="sr-only">Email address for beta signup</label>
+                            <input type="email" id="email-hero" placeholder="Enter your email" class="email-input" aria-describedby="email-hero-help" required>
+                            <button type="button" class="cta-button primary-button" onclick="handleEmailSignup('email-hero')" aria-describedby="email-hero-help">
+                                <span class="button-text">Get Early Access</span>
+                                <span class="button-icon" aria-hidden="true">→</span>
+                            </button>
+                        </div>
+                        <p class="microcopy" id="email-hero-help">Join 2,847 people already on the waitlist. No spam, ever.</p>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="app-demo-container">
+                        <div class="hero-phone-mockup">
+                            <div class="phone-frame">
+                                <div class="phone-screen">
+                                    <div class="status-bar">
+                                        <span class="time">9:41</span>
+                                        <div class="status-icons">
+                                            <span class="signal"></span>
+                                            <span class="wifi"></span>
+                                            <span class="battery"></span>
+                                        </div>
+                                    </div>
+                                    <div class="hero-pacts-screen">
+                                        <!-- Modern Hero Pacts List -->
+                                        <div class="m3-top-app-bar">
+                                            <button class="m3-icon-button">
+                                                <span class="material-icons-round">menu</span>
+                                            </button>
+                                            <div class="m3-top-app-bar-title">My Pacts</div>
+                                            <button class="m3-icon-button">
+                                                <span class="material-icons-round">add</span>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Welcome Header - Enhanced -->
+                                        <div class="welcome-header">
+                                            <div class="welcome-text">
+                                                <h2 class="welcome-title">Good morning, Alex</h2>
+                                                <p class="welcome-subtitle">3 promises to keep • 12 completed this month</p>
+                                            </div>
+                                            <div class="welcome-avatar">
+                                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='24' fill='%234ade80'/%3E%3Ctext x='24' y='30' text-anchor='middle' fill='white' font-family='Inter' font-weight='600' font-size='20'%3EA%3C/text%3E%3C/svg%3E" alt="Alex"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="m3-screen-content">
+                                            <!-- Pact Cards - Enhanced Design -->
+                                            <div class="pact-card-list">
+                                                <!-- Pact Card: Honored -->
+                                                <div class="pact-card honored">
+                                                    <div class="pact-card-icon">🌹</div>
+                                                    <div class="pact-card-content">
+                                                        <div class="pact-card-text">
+                                                            <div class="pact-card-title">Pick up roses for tonight</div>
+                                                            <div class="pact-card-subtitle">With Sarah 💕 • Completed</div>
+                                                        </div>
+                                                        <div class="pact-card-status">
+                                                            <span class="material-icons-round">check_circle</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Pact Card: Active with Priority -->
+                                                <div class="pact-card active priority-high">
+                                                    <div class="pact-card-icon">📅</div>
+                                                    <div class="pact-card-content">
+                                                        <div class="pact-card-text">
+                                                            <div class="pact-card-title">Plan our weekend date</div>
+                                                            <div class="pact-card-subtitle">With Sarah 💕 • Due Friday</div>
+                                                        </div>
+                                                        <div class="pact-card-actions">
+                                                            <button class="action-btn">Mark Done</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Pact Card: Active -->
+                                                <div class="pact-card active">
+                                                    <div class="pact-card-icon">💰</div>
+                                                    <div class="pact-card-content">
+                                                        <div class="pact-card-text">
+                                                            <div class="pact-card-title">Send Dad the money</div>
+                                                            <div class="pact-card-subtitle">With Dad 👨‍👦 • Due today</div>
+                                                        </div>
+                                                        <div class="pact-card-actions">
+                                                            <button class="action-btn">Mark Done</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Pact Card: New Request -->
+                                                <div class="pact-card request">
+                                                    <div class="pact-card-icon">📞</div>
+                                                    <div class="pact-card-content">
+                                                        <div class="pact-card-text">
+                                                            <div class="pact-card-title">Call Mom tonight</div>
+                                                            <div class="pact-card-subtitle">From Mom 👩‍👦 • Just added</div>
+                                                        </div>
+                                                        <div class="pact-card-actions">
+                                                            <button class="action-btn secondary">Maybe Later</button>
+                                                            <button class="action-btn">I'll Do It</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Floating Action Button -->
+                                            <div class="fab-container">
+                                                <button class="fab">
+                                                    <span class="material-icons-round">add</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Pact Section -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="problem-header">
+                <h2 class="section-headline">The small things that show you care</h2>
+                <p class="section-subheadline">
+                    Every "I'll call you tonight" and "Can you pick up milk?" is a chance to show someone they matter. 
+                    These little promises are the foundation of strong relationships.
+                </p>
+            </div>
+            <div class="problem-cards">
+                <div class="problem-card">
+                    <div class="card-icon">
+                        <span class="material-icons-round">favorite</span>
+                    </div>
+                    <h3 class="card-title">Love in the Little Things</h3>
+                    <p class="card-text">
+                        "Can you pick up my favorite ice cream?" "Don't forget to call Mom tonight." 
+                        These small requests are how we show we care. When we follow through, 
+                        we're saying "You matter to me" in the most meaningful way.
+                    </p>
+                    <div class="problem-stats">
+                        <div class="stat">
+                            <span class="stat-number">94%</span>
+                            <span class="stat-label">say small gestures mean the most</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="card-icon">
+                        <span class="material-icons-round">group</span>
+                    </div>
+                    <h3 class="card-title">Every Promise Counts</h3>
+                    <p class="card-text">
+                        "I'll send you that recipe" or "Let's grab coffee next week" – these casual commitments 
+                        are the threads that weave strong relationships. Each one kept is a step closer to deeper trust.
+                    </p>
+                    <div class="problem-stats">
+                        <div class="stat">
+                            <span class="stat-number">87%</span>
+                            <span class="stat-label">feel more valued when promises are kept</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="card-icon">
+                        <span class="material-icons-round">home</span>
+                    </div>
+                    <h3 class="card-title">Home is Where the Heart Is</h3>
+                    <p class="card-text">
+                        "I'll fix that leaky faucet" or "Let's plan a family dinner" – the promises we make 
+                        at home create the foundation of our most important relationships. 
+                        They show we're present and invested.
+                    </p>
+                    <div class="problem-stats">
+                        <div class="stat">
+                            <span class="stat-number">91%</span>
+                            <span class="stat-label">value family commitments most</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div class="container">
+            <div class="solution-header">
+                <h2 class="section-headline">Meet Pact: Your personal promise keeper</h2>
+                <p class="section-subheadline">
+                    A beautiful, shared space where every "I'll remember" becomes "I did it." 
+                    Built for the people and relationships that matter most.
+                </p>
+            </div>
+            
+            <div class="solution-grid">
+                <!-- Propose a Pact, Gently -->
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <div class="solution-icon">
+                            <span class="material-icons-round">handshake</span>
+                        </div>
+                        <h3 class="solution-title">Ask with Love</h3>
+                        <p class="solution-text">
+                            Turn "Can you pick up my favorite ice cream?" into a beautiful, collaborative request. 
+                            Set clear expectations and let them respond with care and understanding.
+                        </p>
+                    </div>
+                    <div class="solution-mockup">
+                        <div class="modern-phone-mockup">
+                            <div class="phone-frame">
+                                <div class="phone-screen">
+                                    <div class="status-bar">
+                                        <span class="time">9:41</span>
+                                        <div class="status-icons">
+                                            <span class="signal"></span>
+                                            <span class="wifi"></span>
+                                            <span class="battery"></span>
+                                        </div>
+                                    </div>
+                                    <!-- Enhanced Propose a Pact Screen -->
+                                    <div class="m3-screen m3-propose-screen">
+                                        <!-- Top App Bar -->
+                                        <div class="m3-top-app-bar">
+                                            <button class="m3-icon-button">
+                                                <span class="material-icons-round">arrow_back</span>
+                                            </button>
+                                            <div class="m3-top-app-bar-title">Propose a Pact</div>
+                                            <button class="m3-icon-button">
+                                                <span class="material-icons-round">help_outline</span>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Main Content -->
+                                        <div class="m3-screen-content">
+                                            <!-- Recipient Selection - Simplified -->
+                                            <div class="recipient-section">
+                                                <div class="section-label">TO</div>
+                                                <div class="recipient-card">
+                                                    <div class="recipient-avatar">
+                                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23ff6b9d'/%3E%3Ctext x='20' y='26' text-anchor='middle' fill='white' font-family='Inter' font-weight='600' font-size='16'%3ES%3C/text%3E%3C/svg%3E" alt="Sarah"/>
+                                                    </div>
+                                                    <div class="recipient-info">
+                                                        <div class="recipient-name">Sarah</div>
+                                                        <div class="recipient-relation">💕 My Love</div>
+                                                    </div>
+                                                    <button class="change-recipient-btn">
+                                                        <span class="material-icons-round">edit</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <!-- Pact Details Form - Enhanced -->
+                                            <div class="pact-form">
+                                                <div class="form-group">
+                                                    <label class="form-label">What would you love them to do?</label>
+                                                    <div class="input-container">
+                                                        <textarea class="form-textarea" placeholder="Describe what you'd love them to do..." rows="3">Pick up my favorite ice cream on your way home 🍨</textarea>
+                                                        <div class="input-actions">
+                                                            <button class="input-action-btn" title="Voice input">
+                                                                <span class="material-icons-round">mic</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="form-label">When should it be done?</label>
+                                                    <div class="date-time-selector">
+                                                        <button class="date-btn">
+                                                            <span class="material-icons-round">calendar_today</span>
+                                                            <span>Today</span>
+                                                        </button>
+                                                        <button class="time-btn">
+                                                            <span class="material-icons-round">schedule</span>
+                                                            <span>6:00 PM</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="form-label">How important is this?</label>
+                                                    <div class="priority-selector">
+                                                        <button class="priority-option">
+                                                            <span class="priority-icon">🟢</span>
+                                                            <span>Nice to have</span>
+                                                        </button>
+                                                        <button class="priority-option active">
+                                                            <span class="priority-icon">🟡</span>
+                                                            <span>Pretty important</span>
+                                                        </button>
+                                                        <button class="priority-option">
+                                                            <span class="priority-icon">🔴</span>
+                                                            <span>Really important</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Smart Suggestions -->
+                                                <div class="smart-suggestions">
+                                                    <div class="suggestions-header">
+                                                        <span class="material-icons-round">lightbulb</span>
+                                                        <span>Sweet suggestions</span>
+                                                    </div>
+                                                    <div class="suggestion-chips">
+                                                        <button class="suggestion-chip">Pick up groceries</button>
+                                                        <button class="suggestion-chip">Call tonight</button>
+                                                        <button class="suggestion-chip">Send photos</button>
+                                                        <button class="suggestion-chip">Plan a date</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Enhanced Action Button -->
+                                        <div class="action-footer">
+                                            <button class="draft-btn">
+                                                <span class="material-icons-round">save</span>
+                                                Save for Later
+                                            </button>
+                                            <button class="propose-btn">
+                                                <span class="material-icons-round">favorite</span>
+                                                Send with Love
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- A Shared Space for Clarity -->
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <div class="solution-icon">
+                            <span class="material-icons-round">visibility</span>
+                        </div>
+                        <h3 class="solution-title">Stay Connected</h3>
+                        <p class="solution-text">
+                            No more "Did I remember to ask?" or "What did they say again?" 
+                            Everything lives in one beautiful, shared space where you both stay connected and in sync.
+                        </p>
+                    </div>
+                    <div class="solution-mockup">
+                        <div class="modern-phone-mockup">
+                            <div class="phone-frame">
+                                <div class="phone-screen">
+                                    <div class="status-bar">
+                                        <span class="time">9:41</span>
+                                        <div class="status-icons">
+                                            <span class="signal"></span>
+                                            <span class="wifi"></span>
+                                            <span class="battery"></span>
+                                        </div>
+                                    </div>
+                                    <!-- M3 REDESIGN: Your Pacts -->
+                                    <div class="m3-screen m3-pacts-list-screen">
+                                        <!-- Top App Bar -->
+                                        <div class="m3-top-app-bar">
+                                            <button class="m3-icon-button"><span class="material-icons-round">account_circle</span></button>
+                                            <div class="m3-top-app-bar-title">Your Pacts</div>
+                                            <button class="m3-icon-button"><span class="material-icons-round">add</span></button>
+                                        </div>
+
+                                        <!-- Main Content -->
+                                        <div class="m3-screen-content">
+                                            <div class="pact-card-list">
+                                                <!-- Pact Card: Honored -->
+                                                <div class="pact-card honored">
+                                                    <div class="pact-card-icon">🌹</div>
+                                                    <div class="pact-card-text">
+                                                        <div class="pact-card-title">Pick up roses for tonight</div>
+                                                        <div class="pact-card-subtitle">With Sarah 💕</div>
+                                                    </div>
+                                                    <div class="pact-card-status">
+                                                        <span class="material-icons-round">check_circle</span>
+                                                    </div>
+                                                </div>
+                                                <!-- Pact Card: Active -->
+                                                <div class="pact-card">
+                                                    <div class="pact-card-icon">📅</div>
+                                                    <div class="pact-card-text">
+                                                        <div class="pact-card-title">Plan our weekend date</div>
+                                                        <div class="pact-card-subtitle">With Sarah 💕</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thoughtful, Effortless Reminders -->
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <div class="solution-icon">
+                            <span class="material-icons-round">schedule</span>
+                        </div>
+                        <h3 class="solution-title">Gentle Reminders</h3>
+                        <p class="solution-text">
+                            Get thoughtful nudges at just the right time. "Don't forget the roses on your way home" 
+                            or "Call Mom in 30 minutes" – so you can focus on what matters most, knowing you won't miss a thing.
+                        </p>
+                    </div>
+                    <div class="solution-mockup">
+                        <div class="modern-phone-mockup">
+                            <div class="phone-frame">
+                                <div class="phone-screen">
+                                    <!-- Enhanced Notification Screen -->
+                                    <div class="m3-screen m3-lock-screen">
+                                        <div class="m3-lock-screen-status-bar">
+                                            <span class="time">9:41</span>
+                                            <div class="status-icons">
+                                                <span class="signal"></span>
+                                                <span class="wifi"></span>
+                                                <span class="battery"></span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Lock Screen Time -->
+                                        <div class="lock-screen-content">
+                                            <div class="lock-screen-time">4:30</div>
+                                            <div class="lock-screen-date">Friday, December 15</div>
+                                        </div>
+
+                                        <!-- Notification Stack - Clean Design -->
+                                        <div class="notification-stack">
+                                            <!-- Main Pact Notification -->
+                                            <div class="notification-card primary">
+                                                <div class="notification-header">
+                                                    <div class="app-icon">
+                                                        <span class="material-icons-round">handshake</span>
+                                                    </div>
+                                                    <div class="app-info">
+                                                        <div class="app-name">Pact</div>
+                                                        <div class="notification-time">now</div>
+                                                    </div>
+                                                    <button class="notification-action">
+                                                        <span class="material-icons-round">more_vert</span>
+                                                    </button>
+                                                </div>
+                                                
+                                                <div class="notification-content">
+                                                    <div class="notification-title">Sweet Reminder 💕</div>
+                                                    <div class="notification-message">Don't forget the ice cream for Sarah! 🍨</div>
+                                                    
+                                                    <!-- Pact Preview - Simplified -->
+                                                    <div class="pact-preview">
+                                                        <div class="pact-preview-icon">🍨</div>
+                                                        <div class="pact-preview-text">
+                                                            <div class="pact-preview-title">Pick up ice cream</div>
+                                                            <div class="pact-preview-subtitle">Due in 2 hours</div>
+                                                        </div>
+                                                        <div class="pact-preview-status">
+                                                            <span class="material-icons-round">schedule</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Quick Actions - Simplified -->
+                                                <div class="notification-actions">
+                                                    <button class="action-button secondary">
+                                                        <span class="material-icons-round">schedule</span>
+                                                        <span>Remind Later</span>
+                                                    </button>
+                                                    <button class="action-button primary">
+                                                        <span class="material-icons-round">favorite</span>
+                                                        <span>I'll Do It!</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <!-- Secondary Notification - Simplified -->
+                                            <div class="notification-card secondary">
+                                                <div class="notification-header">
+                                                    <div class="app-icon">
+                                                        <span class="material-icons-round">notifications</span>
+                                                    </div>
+                                                    <div class="app-info">
+                                                        <div class="app-name">Pact</div>
+                                                        <div class="notification-time">5m ago</div>
+                                                    </div>
+                                                </div>
+                                                <div class="notification-content">
+                                                    <div class="notification-title">New Promise Request</div>
+                                                    <div class="notification-message">Mike wants to borrow your ladder</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Lock Screen Controls -->
+                                        <div class="lock-screen-controls">
+                                            <button class="control-button">
+                                                <span class="material-icons-round">flashlight_on</span>
+                                            </button>
+                                            <button class="control-button">
+                                                <span class="material-icons-round">camera_alt</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celebrate Every Connection -->
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <div class="solution-icon">
+                            <span class="material-icons-round">celebration</span>
+                        </div>
+                        <h3 class="solution-title">Celebrate Every Win</h3>
+                        <p class="solution-text">
+                            Every kept promise strengthens your relationship. Get that heartwarming "Promise Kept!" 
+                            moment and watch your connection grow stronger with the people you care about most.
+                        </p>
+                    </div>
+                    <div class="solution-mockup">
+                        <div class="modern-phone-mockup">
+                            <div class="phone-frame">
+                                <div class="phone-screen">
+                                    <div class="status-bar">
+                                        <span class="time">9:41</span>
+                                        <div class="status-icons">
+                                            <span class="signal"></span>
+                                            <span class="wifi"></span>
+                                            <span class="battery"></span>
+                                        </div>
+                                    </div>
+                                    <!-- Enhanced Celebration Screen -->
+                                    <div class="m3-screen m3-celebration-screen">
+                                        <!-- Background Effects -->
+                                        <div class="celebration-background">
+                                            <div class="confetti confetti-1">🎉</div>
+                                            <div class="confetti confetti-2">✨</div>
+                                            <div class="confetti confetti-3">🎊</div>
+                                            <div class="confetti confetti-4">🌟</div>
+                                            <div class="confetti confetti-5">💫</div>
+                                            <div class="confetti confetti-6">🎈</div>
+                                        </div>
+
+                                        <!-- Main Content -->
+                                        <div class="celebration-content">
+                                            <!-- Success Icon with Animation -->
+                                            <div class="success-icon-container">
+                                                <div class="success-icon">
+                                                    <span class="material-icons-round">check_circle</span>
+                                                </div>
+                                                <div class="success-rings">
+                                                    <div class="ring ring-1"></div>
+                                                    <div class="ring ring-2"></div>
+                                                    <div class="ring ring-3"></div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Celebration Text -->
+                                            <div class="celebration-text">
+                                                <h2 class="celebration-title">Promise Kept! 💕</h2>
+                                                <p class="celebration-subtitle">You've made Sarah's day brighter</p>
+                                            </div>
+
+                                            <!-- Pact Card -->
+                                            <div class="celebration-pact-card">
+                                                <div class="pact-card-icon">🌹</div>
+                                                <div class="pact-card-content">
+                                                    <div class="pact-title">Pick up roses for tonight</div>
+                                                    <div class="pact-partner">With Sarah 💕</div>
+                                                </div>
+                                                <div class="pact-status">
+                                                    <span class="material-icons-round">check_circle</span>
+                                                </div>
+                                            </div>
+
+                                            <!-- Stats -->
+                                            <div class="celebration-stats">
+                                                <div class="stat-item">
+                                                    <div class="stat-number">13</div>
+                                                    <div class="stat-label">Promises Kept</div>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <div class="stat-number">7</div>
+                                                    <div class="stat-label">Day Streak</div>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <div class="stat-number">95%</div>
+                                                    <div class="stat-label">Love Score</div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Action Buttons -->
+                                            <div class="celebration-actions">
+                                                <button class="action-btn secondary">
+                                                    <span class="material-icons-round">share</span>
+                                                    Share Joy
+                                                </button>
+                                                <button class="action-btn primary">
+                                                    <span class="material-icons-round">favorite</span>
+                                                    Make Another Promise
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Bottom Action -->
+                                        <div class="celebration-footer">
+                                            <button class="continue-btn">
+                                                <span class="material-icons-round">arrow_forward</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Final CTA Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-content">
+                <div class="mission-header">
+                    <h2 class="mission-headline">This isn't just another app. It's a love language.</h2>
+                    <p class="mission-statement">
+                        We built Pact because we believe the small things matter most. Every "I'll call you tonight" 
+                        and "Can you pick up milk?" is a chance to show you care. Technology should help us love better, 
+                        not make us feel more disconnected.
+                    </p>
+                </div>
+                
+                <div class="mission-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">2,847</div>
+                        <div class="stat-label">People on waitlist</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">94%</div>
+                        <div class="stat-label">Feel more connected</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">89%</div>
+                        <div class="stat-label">Keep more promises</div>
+                    </div>
+                </div>
+                
+                <div class="final-cta">
+                    <h2 class="cta-headline">Ready to show up for what matters most?</h2>
+                    <p class="cta-subheadline">
+                        Join thousands of people who are already strengthening their relationships, one promise at a time.
+                    </p>
+                    <div class="cta-form">
+                        <div class="email-input-container">
+                            <input type="email" id="email-final" placeholder="Enter your email" class="email-input">
+                            <button type="button" class="cta-button primary-button" onclick="handleEmailSignup('email-final')">
+                                <span class="button-text">Get Early Access</span>
+                                <span class="button-icon">→</span>
+                            </button>
+                        </div>
+                        <p class="microcopy">Join 2,847 people already on the waitlist. No spam, ever.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
