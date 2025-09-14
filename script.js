@@ -1,45 +1,129 @@
 // Pact Landing Page JavaScript
 
+// Firebase Configuration
+let db;
+
+// Initialize Firebase (replace with your config)
+function initFirebase() {
+  // Firebase config will be added here
+  const firebaseConfig = {
+    // Add your Firebase config here
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  // Initialize Firebase only if config is provided
+  if (typeof firebase !== 'undefined' && firebaseConfig.apiKey !== "YOUR_API_KEY") {
+    firebase.initializeApp(firebaseConfig);
+    db = firebase.firestore();
+  }
+}
+
+// Submit email to Firebase Firestore
+async function submitToFirebase(email, source) {
+  if (!db) {
+    // Fallback if Firebase not configured
+    console.log('Firebase not configured, using localStorage fallback');
+    return Promise.resolve();
+  }
+
+  try {
+    await db.collection('waitlist').add({
+      email: email,
+      source: source,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      userAgent: navigator.userAgent,
+      referrer: document.referrer,
+      utm: {
+        source: new URLSearchParams(window.location.search).get('utm_source'),
+        medium: new URLSearchParams(window.location.search).get('utm_medium'),
+        campaign: new URLSearchParams(window.location.search).get('utm_campaign')
+      }
+    });
+    
+    console.log('Email successfully added to waitlist');
+  } catch (error) {
+    console.error('Error adding email to waitlist:', error);
+    throw error;
+  }
+}
+
 // Email signup functionality
 function handleEmailSignup(inputId) {
   const emailInput = document.getElementById(inputId);
   const email = emailInput.value.trim();
   
-  // Basic email validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // Enhanced email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   
   if (!email) {
     showNotification('Please enter your email address', 'error');
+    emailInput.focus();
     return;
   }
   
   if (!emailRegex.test(email)) {
-    showNotification('Please enter a valid email address', 'error');
+    showNotification('Please enter a valid email address (e.g., you@example.com)', 'error');
+    emailInput.focus();
+    emailInput.select();
     return;
   }
   
-  // Simulate API call
+  // Check for common typos in email domains
+  if (hasCommonEmailTypos(email)) {
+    showNotification('Please check your email address for typos', 'error');
+    emailInput.focus();
+    emailInput.select();
+    return;
+  }
+  
+  // Submit to Firebase Firestore
   const button = emailInput.parentElement.querySelector('.primary-button');
-  const originalText = button.textContent;
+  const originalText = button.innerHTML;
   
-  button.textContent = 'Joining...';
+  button.innerHTML = '<span class="button-text">Joining...</span>';
   button.disabled = true;
+  button.setAttribute('aria-busy', 'true');
   
-  // Simulate network delay
-  setTimeout(() => {
-    // Store email (in real app, this would be sent to backend)
-    localStorage.setItem('pactBetaEmail', email);
-    
-    showNotification('🎉 Welcome to the Pact beta! We\'ll be in touch soon.', 'success');
-    
-    // Reset form
-    emailInput.value = '';
-    button.textContent = originalText;
-    button.disabled = false;
-    
-    // Track conversion (in real app, this would be analytics)
-    console.log('Beta signup:', email);
-  }, 1500);
+  // Submit to Firebase
+  submitToFirebase(email, inputId)
+    .then(() => {
+      // Store email locally for return visitor detection
+      localStorage.setItem('pactBetaEmail', email);
+      
+      // Track with Google Analytics if available
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'signup', {
+          event_category: 'engagement',
+          event_label: inputId,
+          value: 1
+        });
+      }
+      
+      showNotification('🎉 Welcome to Pact Insiders! You\'re in line for lifetime premium access.', 'success');
+      
+      // Reset form
+      emailInput.value = '';
+      button.innerHTML = originalText;
+      button.disabled = false;
+      button.removeAttribute('aria-busy');
+    })
+    .catch(error => {
+      console.error('Signup error:', error);
+      // Fallback to localStorage
+      localStorage.setItem('pactBetaEmail', email);
+      showNotification('Thanks for joining! We\'ve saved your email and will be in touch soon.', 'success');
+      
+      // Reset form
+      emailInput.value = '';
+      button.innerHTML = originalText;
+      button.disabled = false;
+      button.removeAttribute('aria-busy');
+    });
 }
 
 // Notification system
@@ -115,7 +199,7 @@ function initScrollAnimations() {
   }, observerOptions);
   
   // Observe elements for animation
-  const animatedElements = document.querySelectorAll('.problem-card, .solution-card, .mission-content');
+  const animatedElements = document.querySelectorAll('.problem-card, .feature-step, .mission-content, .founder-card, .faq-item');
   animatedElements.forEach(el => {
     observer.observe(el);
   });
@@ -206,10 +290,37 @@ function initSolutionMockupInteractions() {
   // Notification banner interaction
   const notificationBanners = document.querySelectorAll('.notification-banner');
   notificationBanners.forEach(banner => {
+    banner.addEventListener('mouseenter', () => {
+      banner.style.transform = 'scale(1.01)';
+    });
+    
+    banner.addEventListener('mouseleave', () => {
+      banner.style.transform = 'scale(1)';
+    });
+    
     banner.addEventListener('click', () => {
       banner.style.transform = 'scale(0.98)';
       setTimeout(() => {
         banner.style.transform = 'scale(1)';
+      }, 150);
+    });
+  });
+  
+  // Dynamic Island interactions
+  const dynamicIslands = document.querySelectorAll('.dynamic-island');
+  dynamicIslands.forEach(island => {
+    island.addEventListener('mouseenter', () => {
+      island.style.transform = 'translateX(-50%) scale(1.02)';
+    });
+    
+    island.addEventListener('mouseleave', () => {
+      island.style.transform = 'translateX(-50%) scale(1)';
+    });
+    
+    island.addEventListener('click', () => {
+      island.style.transform = 'translateX(-50%) scale(0.98)';
+      setTimeout(() => {
+        island.style.transform = 'translateX(-50%) scale(1)';
       }, 150);
     });
   });
@@ -366,6 +477,24 @@ function initKeyboardHandlers() {
 
 // Enhanced Micro-interactions
 function initMicroInteractions() {
+  // Phone mockup hover effects
+  const phoneMockups = document.querySelectorAll('.phone-mockup');
+  phoneMockups.forEach(mockup => {
+    const phoneFrame = mockup.querySelector('.phone-frame');
+    
+    mockup.addEventListener('mouseenter', () => {
+      if (phoneFrame) {
+        phoneFrame.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1.02)';
+      }
+    });
+    
+    mockup.addEventListener('mouseleave', () => {
+      if (phoneFrame) {
+        phoneFrame.style.transform = 'rotateX(2deg) rotateY(-1deg) scale(1)';
+      }
+    });
+  });
+
   // Pact card hover effects
   const pactCards = document.querySelectorAll('.pact-card');
   pactCards.forEach(card => {
@@ -527,16 +656,10 @@ function createRippleEffect(button, event) {
   }, 600);
 }
 
-// Parallax scrolling effect for hero section
+// Parallax effect removed - keep phone straight
 function initParallaxEffect() {
-  const heroPhone = document.querySelector('.hero-phone-mockup');
-  if (!heroPhone) return;
-
-  window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.5;
-    heroPhone.style.transform = `perspective(1000px) rotateY(-5deg) rotateX(5deg) translateY(${rate}px)`;
-  });
+  // No parallax effect to keep phone straight and focused
+  return;
 }
 
 // Staggered animation for pact cards
@@ -586,10 +709,13 @@ function initCelebrationAnimations() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Firebase first
+  initFirebase();
+  
   addScrollAnimationStyles();
   initScrollAnimations();
-  initDemoAnimation();
   initSmoothScrolling();
+  initFaqAccordion();
   initLazyLoading();
   initKeyboardHandlers();
   initMicroInteractions();
@@ -623,19 +749,6 @@ function initAdvancedAnimations() {
       element.style.transform = 'translateY(0)';
     }, index * 200);
   });
-
-  // Phone mockup entrance animation
-  const phoneMockup = document.querySelector('.hero-phone-mockup');
-  if (phoneMockup) {
-    phoneMockup.style.opacity = '0';
-    phoneMockup.style.transform = 'translateX(50px) rotateY(15deg)';
-    
-    setTimeout(() => {
-      phoneMockup.style.transition = 'all 1.2s cubic-bezier(0.05, 0.7, 0.1, 1)';
-      phoneMockup.style.opacity = '1';
-      phoneMockup.style.transform = 'translateX(0) rotateY(-3deg)';
-    }, 600);
-  }
 
   // Problem cards staggered animation
   const problemCards = document.querySelectorAll('.problem-card');
@@ -713,8 +826,164 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
+// Helper function to check for common email typos
+function hasCommonEmailTypos(email) {
+  const commonTypos = {
+    'gmial.com': 'gmail.com',
+    'gmai.com': 'gmail.com',
+    'yahooo.com': 'yahoo.com',
+    'hotmial.com': 'hotmail.com',
+    'outlok.com': 'outlook.com'
+  };
+  
+  const domain = email.split('@')[1];
+  return Object.keys(commonTypos).includes(domain);
+}
+
+// Enhanced notification with better accessibility
+function showAccessibleNotification(message, type = 'info') {
+  showNotification(message, type);
+  
+  // Announce to screen readers
+  const announcement = document.createElement('div');
+  announcement.setAttribute('aria-live', 'polite');
+  announcement.setAttribute('aria-atomic', 'true');
+  announcement.className = 'sr-only';
+  announcement.textContent = message;
+  document.body.appendChild(announcement);
+  
+  setTimeout(() => {
+    document.body.removeChild(announcement);
+  }, 1000);
+}
+
+// Sharing functionality
+async function handleNativeShare() {
+  const shareData = {
+    title: 'Pact - Be the person everyone can count on',
+    text: 'Check out Pact - a simple app for tracking commitments and requests between you and the people in your life. Join the waitlist!',
+    url: window.location.href
+  };
+
+  try {
+    if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+      await navigator.share(shareData);
+      showNotification('Thanks for sharing Pact! 🎉', 'success');
+    } else {
+      // Fallback to copy to clipboard
+      await copyToClipboard();
+    }
+  } catch (error) {
+    if (error.name !== 'AbortError') {
+      console.error('Error sharing:', error);
+      await copyToClipboard();
+    }
+  }
+}
+
+function shareToTwitter() {
+  const text = encodeURIComponent('Check out Pact - be the person everyone can count on! A simple app for tracking commitments between you and the people in your life. Join the waitlist:');
+  const url = encodeURIComponent(window.location.href);
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+  
+  window.open(twitterUrl, '_blank', 'width=550,height=420');
+  showNotification('Opening Twitter to share...', 'info');
+}
+
+async function copyToClipboard() {
+  const shareText = `Check out Pact - be the person everyone can count on! A simple app for tracking commitments between you and the people in your life. Join the waitlist: ${window.location.href}`;
+  
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(shareText);
+      showNotification('Link copied to clipboard! 📋', 'success');
+    } else {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = shareText;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-999999px';
+      textArea.style.top = '-999999px';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      
+      try {
+        document.execCommand('copy');
+        showNotification('Link copied to clipboard! 📋', 'success');
+      } catch (err) {
+        showNotification('Unable to copy link. Please copy manually.', 'error');
+      }
+      
+      document.body.removeChild(textArea);
+    }
+  } catch (error) {
+    console.error('Failed to copy to clipboard:', error);
+    showNotification('Unable to copy link. Please copy manually.', 'error');
+  }
+}
+
+function shareViaEmail() {
+  const subject = encodeURIComponent('Check out Pact - Be the person everyone can count on');
+  const body = encodeURIComponent(`Hi there!
+
+I wanted to share something interesting with you - it's called Pact, and it's a simple app for tracking commitments and requests between you and the people in your life.
+
+Whether you're coordinating with roommates, family members, or friends, Pact helps turn good intentions into meaningful connections by making it easy to follow through on the small commitments that matter.
+
+They're currently building it and looking for diverse perspectives from couples, roommates, families, and friend groups. If this sounds useful to you, you can join the waitlist here:
+
+${window.location.href}
+
+Hope you find it as interesting as I did!
+
+Best regards`);
+  
+  const emailUrl = `mailto:?subject=${subject}&body=${body}`;
+  window.location.href = emailUrl;
+  showNotification('Opening your email app...', 'info');
+}
+
 // Export functions for potential external use
 window.PactLanding = {
   handleEmailSignup,
-  showNotification
+  showNotification,
+  showAccessibleNotification,
+  handleNativeShare,
+  shareToTwitter,
+  copyToClipboard,
+  shareViaEmail
 };
+
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+
+    question.addEventListener('click', () => {
+      const isExpanded = question.getAttribute('aria-expanded') === 'true';
+
+      // Close all other items before opening the new one
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          const otherQuestion = otherItem.querySelector('.faq-question');
+          const otherAnswer = otherItem.querySelector('.faq-answer');
+          otherQuestion.setAttribute('aria-expanded', 'false');
+          otherAnswer.style.maxHeight = null;
+        }
+      });
+
+      // Toggle the current item
+      if (isExpanded) {
+        question.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = null;
+      } else {
+        question.setAttribute('aria-expanded', 'true');
+        // Set max-height to the scrollHeight to animate opening
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+}

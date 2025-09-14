@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2e1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#213021;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  
+  <!-- Main content -->
+  <g transform="translate(100, 140)">
+    <!-- Logo/Icon -->
+    <circle cx="80" cy="80" r="60" fill="#4ade80" opacity="0.2"/>
+    <text x="80" y="100" font-family="Arial, sans-serif" font-size="60" text-anchor="middle" fill="#4ade80">🤝</text>
+    
+    <!-- Title -->
+    <text x="200" y="60" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#f8f6f0">Pact</text>
+    <text x="200" y="110" font-family="Arial, sans-serif" font-size="32" fill="#e0ddd4">Be the person everyone can count on</text>
+    
+    <!-- Subtitle -->
+    <text x="200" y="160" font-family="Arial, sans-serif" font-size="24" fill="#c4c1b8">Track commitments with partners, roommates, family, and friends</text>
+    
+    <!-- CTA -->
+    <rect x="200" y="220" width="280" height="60" rx="30" fill="#4ade80"/>
+    <text x="340" y="260" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1a2e1a">Launching Q4 2025</text>
+  </g>
+  
+  <!-- Bottom accent -->
+  <rect x="0" y="550" width="1200" height="50" fill="#4ade80" opacity="0.1"/>
+</svg>
