@@ -706,6 +706,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNotificationAnimations();
   initCelebrationAnimations();
   initAdvancedAnimations();
+  initInteractivePhoneMockup();
   
   // Add some visual feedback for loaded state
   document.body.classList.add('loaded');
@@ -975,4 +976,202 @@ function initFaqAccordion() {
       }
     });
   });
+}
+
+function initInteractivePhoneMockup() {
+  const acceptButton = document.querySelector('.notification-action.hero-accept');
+  const declineButton = document.querySelector('.notification-action.decline');
+  const notificationBanner = document.querySelector('.notification-banner.invitation-notification');
+  const moreOptionsBtn = document.querySelector('.more-options-btn');
+  const contextualMenu = document.querySelector('.contextual-menu');
+  const contextualOptions = document.querySelectorAll('.contextual-option');
+
+  if (acceptButton && declineButton && notificationBanner) {
+    // Enhanced Accept Button with hero moment
+    acceptButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Create ripple effect
+      createHeroRippleEffect(acceptButton, e);
+      
+      // Haptic feedback simulation
+      if (navigator.vibrate) {
+        navigator.vibrate([50, 100, 50]);
+      }
+      
+      // Shape morphing and celebration
+      acceptButton.style.transform = 'scale(1.1)';
+      acceptButton.innerHTML = `
+        <span class="action-icon">✓</span>
+        <span class="action-text">Accepted!</span>
+        <div class="hero-ripple"></div>
+      `;
+      
+      // Show celebration state
+      setTimeout(() => {
+        notificationBanner.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        notificationBanner.style.transform = 'scale(1.05)';
+        notificationBanner.style.background = 'linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(16, 185, 129, 0.15))';
+        
+        // Add confetti effect
+        createCelebrationConfetti(notificationBanner);
+      }, 200);
+      
+      setTimeout(() => {
+        // Reset after celebration
+        resetNotificationDemo();
+      }, 3000);
+    });
+
+    // Decline button with gentle animation
+    declineButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Gentle decline animation
+      declineButton.style.transform = 'scale(0.95)';
+      notificationBanner.style.transition = 'all 0.4s ease';
+      notificationBanner.style.transform = 'scale(0.95)';
+      notificationBanner.style.opacity = '0.7';
+
+      setTimeout(() => {
+        // Reset or show a "declined" message
+        resetNotificationDemo();
+      }, 1000);
+    });
+  }
+
+  // Contextual menu functionality
+  if (moreOptionsBtn && contextualMenu) {
+    moreOptionsBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Toggle contextual menu
+      const isVisible = contextualMenu.style.display !== 'none';
+      contextualMenu.style.display = isVisible ? 'none' : 'block';
+      
+      if (!isVisible) {
+        // Animate menu appearance
+        contextualMenu.style.opacity = '0';
+        contextualMenu.style.transform = 'translateY(20px) scale(0.95)';
+        
+        requestAnimationFrame(() => {
+          contextualMenu.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+          contextualMenu.style.opacity = '1';
+          contextualMenu.style.transform = 'translateY(0) scale(1)';
+        });
+      }
+    });
+
+    // Handle contextual options
+    contextualOptions.forEach(option => {
+      option.addEventListener('click', (e) => {
+        e.preventDefault();
+        const action = option.dataset.action;
+        
+        // Add selection animation
+        option.style.background = 'rgba(74, 222, 128, 0.2)';
+        option.style.transform = 'translateX(8px) scale(1.02)';
+        
+        // Handle different actions
+        switch(action) {
+          case 'suggest-time':
+            showNotification('⏰ Time suggestion feature coming soon!', 'info');
+            break;
+          case 'ask-question':
+            showNotification('💬 Question feature coming soon!', 'info');
+            break;
+          case 'remind-later':
+            showNotification('⏰ Reminder set for later!', 'success');
+            break;
+        }
+        
+        // Hide menu after selection
+        setTimeout(() => {
+          contextualMenu.style.display = 'none';
+        }, 1000);
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!moreOptionsBtn.contains(e.target) && !contextualMenu.contains(e.target)) {
+        contextualMenu.style.display = 'none';
+      }
+    });
+  }
+}
+
+// Enhanced ripple effect for hero button
+function createHeroRippleEffect(button, event) {
+  const ripple = document.createElement('div');
+  const rect = button.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height) * 2;
+  const x = event.clientX - rect.left - size / 2;
+  const y = event.clientY - rect.top - size / 2;
+  
+  ripple.style.width = ripple.style.height = size + 'px';
+  ripple.style.left = x + 'px';
+  ripple.style.top = y + 'px';
+  ripple.style.position = 'absolute';
+  ripple.style.borderRadius = '50%';
+  ripple.style.background = 'rgba(255, 255, 255, 0.4)';
+  ripple.style.pointerEvents = 'none';
+  ripple.style.animation = 'heroRipple 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+  ripple.style.zIndex = '1000';
+  
+  button.style.position = 'relative';
+  button.style.overflow = 'hidden';
+  button.appendChild(ripple);
+  
+  setTimeout(() => {
+    ripple.remove();
+  }, 800);
+}
+
+// Celebration confetti effect
+function createCelebrationConfetti(container) {
+  const confettiCount = 12;
+  const colors = ['#4ade80', '#22c55e', '#16a34a', '#ffffff'];
+  
+  for (let i = 0; i < confettiCount; i++) {
+    const confetti = document.createElement('div');
+    confetti.style.position = 'absolute';
+    confetti.style.width = '8px';
+    confetti.style.height = '8px';
+    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.borderRadius = '50%';
+    confetti.style.left = Math.random() * 100 + '%';
+    confetti.style.top = '50%';
+    confetti.style.pointerEvents = 'none';
+    confetti.style.animation = `confettiCelebration 2s ease-out forwards`;
+    confetti.style.zIndex = '1000';
+    
+    container.appendChild(confetti);
+    
+    setTimeout(() => {
+      confetti.remove();
+    }, 2000);
+  }
+}
+
+// Reset notification demo
+function resetNotificationDemo() {
+  const acceptButton = document.querySelector('.notification-action.hero-accept');
+  const notificationBanner = document.querySelector('.notification-banner.invitation-notification');
+  
+  if (acceptButton && notificationBanner) {
+    // Reset accept button
+    acceptButton.innerHTML = `
+      <span class="action-icon">✓</span>
+      <span class="action-text">Accept</span>
+      <div class="hero-ripple"></div>
+    `;
+    acceptButton.style.transform = '';
+    
+    // Reset notification banner
+    notificationBanner.style.transform = '';
+    notificationBanner.style.opacity = '';
+    notificationBanner.style.background = '';
+  }
 }

@@ -111,9 +111,9 @@
     <section class="how-pact-works-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-headline">How Pact Helps You Connect</h2>
+                <h2 class="section-headline">How Pact Turns Promises into Connection</h2>
                 <p class="section-subheadline">
-                    From a simple commitment to a shared sense of accomplishment, Pact makes every step feel effortless and meaningful.
+                    Every small promise is a chance to show someone they can count on you. Whether you're partners coordinating household tasks, roommates splitting chores, or family staying connected—Pact helps you follow through on what matters most.
                 </p>
             </div>
 
@@ -153,32 +153,84 @@
                                 </div>
                                 <div class="dynamic-island"></div>
                                 <div class="app-content">
-                                    <div class="notification-banner">
-                                        <div class="notification-app-icon">
-                                            <div class="app-icon-pact">
-                                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                                                    <rect width="28" height="28" rx="6" fill="#4ade80"/>
-                                                    <path d="M8 14L12 18L20 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <div class="app-nav-header">
+                                        <div class="nav-title">
+                                            <h1 class="screen-title">Ask a Favor</h1>
+                                        </div>
+                                        <div class="nav-actions">
+                                            <button class="nav-button">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M12 5V19M5 12H19" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/>
                                                 </svg>
-                                            </div>
-                                        </div>
-                                        <div class="notification-content">
-                                            <div class="notification-header-row">
-                                                <span class="notification-app-name">Pact</span>
-                                                <span class="notification-time">now</span>
-                                            </div>
-                                            <div class="notification-title">New Pact Request</div>
-                                            <div class="notification-message">Mark: "Hey! Could you take out the recycling before 10 PM tonight? Thanks! 🗂️"</div>
-                                        </div>
-                                        <div class="notification-avatar">
-                                            <div class="avatar-mark">
-                                                <span class="avatar-initial">M</span>
-                                            </div>
+                                            </button>
                                         </div>
                                     </div>
-                                    <div class="notification-actions-banner">
-                                        <button class="notification-action decline">Decline</button>
-                                        <button class="notification-action accept">Accept</button>
+                                    <div class="favor-form-container">
+                                        <div class="form-section">
+                                            <label class="form-label">What do you need help with?</label>
+                                            <textarea class="form-textarea" placeholder="Can you take out the recycling by 10 PM tonight? 🗂️" rows="3"></textarea>
+                                        </div>
+                                        
+                                        <div class="form-section">
+                                            <label class="form-label">Who should help?</label>
+                                            <div class="person-selector">
+                                                <div class="person-option selected">
+                                                    <div class="person-avatar">
+                                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='markGradient' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234ade80;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2322c55e;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='50' fill='url(%23markGradient)'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-family='system-ui' font-size='40' font-weight='600'%3EM%3C/text%3E%3C/svg%3E" alt="Mark" class="profile-image">
+                                                    </div>
+                                                    <span class="person-name">Mark</span>
+                                                </div>
+                                                <div class="person-option">
+                                                    <div class="person-avatar">
+                                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='sarahGradient' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff8a80;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23ff7043;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='50' fill='url(%23sarahGradient)'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-family='system-ui' font-size='40' font-weight='600'%3ES%3C/text%3E%3C/svg%3E" alt="Sarah" class="profile-image">
+                                                    </div>
+                                                    <span class="person-name">Sarah</span>
+                                                </div>
+                                                <div class="person-option">
+                                                    <div class="person-avatar">
+                                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='alexGradient' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234ade80;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2322c55e;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='50' fill='url(%23alexGradient)'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-family='system-ui' font-size='40' font-weight='600'%3EA%3C/text%3E%3C/svg%3E" alt="Alex" class="profile-image">
+                                                    </div>
+                                                    <span class="person-name">Alex</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-section">
+                                            <label class="form-label">When is it due?</label>
+                                            <div class="due-selector">
+                                                <div class="due-option selected">Tonight</div>
+                                                <div class="due-option">Tomorrow</div>
+                                                <div class="due-option">This weekend</div>
+                                                <div class="due-option">Next week</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-section">
+                                            <label class="form-label">Category</label>
+                                            <div class="category-selector">
+                                                <div class="category-option selected">
+                                                    <span class="category-icon">🏠</span>
+                                                    <span class="category-text">Household</span>
+                                                </div>
+                                                <div class="category-option">
+                                                    <span class="category-icon">🛒</span>
+                                                    <span class="category-text">Shopping</span>
+                                                </div>
+                                                <div class="category-option">
+                                                    <span class="category-icon">👨‍👩‍👧‍👦</span>
+                                                    <span class="category-text">Family</span>
+                                                </div>
+                                                <div class="category-option">
+                                                    <span class="category-icon">💼</span>
+                                                    <span class="category-text">Work</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-actions">
+                                            <button class="form-button secondary">Cancel</button>
+                                            <button class="form-button primary">Send Request</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -187,9 +239,9 @@
                 </div>
                 <div class="feature-text-content">
                     <div class="step-number">1</div>
-                    <h3 class="feature-headline">Start with a Connection, Not a Chore</h3>
+                    <h3 class="feature-headline">Make Promises You'll Actually Keep</h3>
                     <p class="feature-text">
-                        Frame your request as a shared goal. The other person receives a clear, gentle notification and can accept with a single tap—turning a potential chore into a simple act of teamwork.
+                        Turn casual "I'll do it" into intentional "I promise." Clear requests, no nagging, just the quiet confidence of follow-through. Every request is an invitation to show you care.
                     </p>
                 </div>
             </div>
@@ -246,73 +298,58 @@
                                         <div class="segment-option active">Active</div>
                                         <div class="segment-option">Completed</div>
                                     </div>
-                                    <div class="pacts-dashboard">
-                                        <div class="pact-category">
-                                            <div class="category-header">
-                                                <div class="category-info">
-                                                    <div class="category-icon-container">
-                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                            <path d="M3 7V17C3 17.5523 3.44772 18 4 18H16C16.5523 18 17 17.5523 17 17V7M3 7L10 2L17 7M3 7H17" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                        </svg>
-                                                    </div>
-                                                    <span class="category-name">Household</span>
-                                                </div>
-                                                <span class="category-badge">3</span>
+                                    <div class="pacts-list">
+                                        <div class="pact-item">
+                                            <div class="pact-checkbox">
+                                                <div class="checkbox-circle"></div>
                                             </div>
-                                            <div class="pact-items">
-                                                <div class="pact-item">
-                                                    <div class="pact-checkbox">
-                                                        <div class="checkbox-circle"></div>
-                                                    </div>
-                                                    <div class="pact-details">
-                                                        <div class="pact-title">Take out recycling bins</div>
-                                                        <div class="pact-meta">
-                                                            <span class="pact-person">with Mark</span>
-                                                            <span class="pact-due">Due tonight at 10:00 PM</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pact-status-dot pending"></div>
-                                                </div>
-                                                <div class="pact-item">
-                                                    <div class="pact-checkbox">
-                                                        <div class="checkbox-circle"></div>
-                                                    </div>
-                                                    <div class="pact-details">
-                                                        <div class="pact-title">Pick up groceries for dinner</div>
-                                                        <div class="pact-meta">
-                                                            <span class="pact-person">with Sarah</span>
-                                                            <span class="pact-due">Due tomorrow at 6:00 PM</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pact-status-dot active"></div>
+                                            <div class="pact-details">
+                                                <div class="pact-title">Take out recycling</div>
+                                                <div class="pact-meta">
+                                                    <span class="pact-person">with Mark</span>
+                                                    <span class="pact-due">Due tonight 10 PM</span>
                                                 </div>
                                             </div>
+                                            <div class="pact-status-dot pending"></div>
                                         </div>
-                                        <div class="pact-category">
-                                            <div class="category-header">
-                                                <div class="category-info">
-                                                    <div class="category-icon-container">
-                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                            <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                        </svg>
-                                                    </div>
-                                                    <span class="category-name">Family</span>
-                                                </div>
-                                                <span class="category-badge">2</span>
+                                        <div class="pact-item">
+                                            <div class="pact-checkbox">
+                                                <div class="checkbox-circle"></div>
                                             </div>
+                                            <div class="pact-details">
+                                                <div class="pact-title">Pick up groceries</div>
+                                                <div class="pact-meta">
+                                                    <span class="pact-person">with Sarah</span>
+                                                    <span class="pact-due">Due tomorrow 6 PM</span>
+                                                </div>
+                                            </div>
+                                            <div class="pact-status-dot active"></div>
                                         </div>
-                                        <div class="pact-category">
-                                            <div class="category-header">
-                                                <div class="category-info">
-                                                    <div class="category-icon-container">
-                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                            <path d="M16 14C16 14 14 16 10 16C6 16 4 14 4 14M10 10V2M10 2L7 5M10 2L13 5" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                        </svg>
-                                                    </div>
-                                                    <span class="category-name">Friends</span>
-                                                </div>
-                                                <span class="category-badge">1</span>
+                                        <div class="pact-item">
+                                            <div class="pact-checkbox">
+                                                <div class="checkbox-circle"></div>
                                             </div>
+                                            <div class="pact-details">
+                                                <div class="pact-title">Call mom for her birthday</div>
+                                                <div class="pact-meta">
+                                                    <span class="pact-person">with Family</span>
+                                                    <span class="pact-due">Due this weekend</span>
+                                                </div>
+                                            </div>
+                                            <div class="pact-status-dot pending"></div>
+                                        </div>
+                                        <div class="pact-item">
+                                            <div class="pact-checkbox">
+                                                <div class="checkbox-circle"></div>
+                                            </div>
+                                            <div class="pact-details">
+                                                <div class="pact-title">Help move furniture</div>
+                                                <div class="pact-meta">
+                                                    <span class="pact-person">with Alex</span>
+                                                    <span class="pact-due">Due next week</span>
+                                                </div>
+                                            </div>
+                                            <div class="pact-status-dot pending"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -322,9 +359,9 @@
                 </div>
                 <div class="feature-text-content">
                     <div class="step-number">2</div>
-                    <h3 class="feature-headline">Keep Track, Together</h3>
+                    <h3 class="feature-headline">Never Let a Promise Slip Away</h3>
                     <p class="feature-text">
-                        Ease the weight of good intentions and eliminate follow-up friction. All your commitments are organized by relationship in a single, clear view, where gentle reminders keep everyone on the same page.
+                        All your commitments in one simple list. From household tasks to family calls, every promise gets the attention it deserves. Less mental burden, more shared understanding. Never forget what matters to the people who matter most.
                     </p>
                 </div>
             </div>
@@ -364,81 +401,83 @@
                                     </div>
                                 </div>
                                 <div class="dynamic-island"></div>
-                                <div class="app-content celebration-view">
-                                    <div class="celebration-header">
-                                        <button class="close-button">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                <path d="M18 6L6 18M6 6L18 18" stroke="#8E8E93" stroke-width="2" stroke-linecap="round"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div class="celebration-main">
-                                        <div class="success-animation">
-                                            <div class="success-circle">
-                                                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                                                    <circle cx="32" cy="32" r="30" stroke="#4ade80" stroke-width="4" fill="rgba(74, 222, 128, 0.1)"/>
-                                                    <path d="M20 32L28 40L44 24" stroke="#4ade80" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                <div class="app-content">
+                                    <div class="app-nav-header">
+                                        <div class="nav-title">
+                                            <h1 class="screen-title">My Pacts</h1>
+                                        </div>
+                                        <div class="nav-actions">
+                                            <button class="nav-button">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <path d="M12 5V19M5 12H19" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/>
                                                 </svg>
-                                            </div>
-                                            <div class="celebration-confetti">
-                                                <div class="confetti-piece c1"></div>
-                                                <div class="confetti-piece c2"></div>
-                                                <div class="confetti-piece c3"></div>
-                                                <div class="confetti-piece c4"></div>
-                                                <div class="confetti-piece c5"></div>
-                                                <div class="confetti-piece c6"></div>
-                                            </div>
-                                        </div>
-                                        <div class="celebration-text">
-                                            <h2 class="celebration-title">Pact Kept!</h2>
-                                            <p class="celebration-subtitle">Mark took out the recycling bins</p>
-                                        </div>
-                                        <div class="completed-pact-card">
-                                            <div class="pact-card-header">
-                                                <div class="pact-icon-completed">
-                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                        <path d="M3 7V17C3 17.5523 3.44772 18 4 18H16C16.5523 18 17 17.5523 17 17V7M3 7L10 2L17 7M3 7H17" stroke="#4ade80" stroke-width="1.5"/>
-                                                    </svg>
-                                                </div>
-                                                <div class="pact-card-info">
-                                                    <div class="pact-card-title">Take out recycling bins</div>
-                                                    <div class="pact-card-meta">Household • Completed 2 min ago</div>
-                                                </div>
-                                                <div class="completion-checkmark">
-                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                        <circle cx="10" cy="10" r="10" fill="#4ade80"/>
-                                                        <path d="M6 10L9 13L14 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                            <div class="impact-message">
-                                                <div class="impact-icon">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                                        <path d="M8 1L10.09 5.26L15 6L11 9.74L11.91 14.74L8 12.27L4.09 14.74L5 9.74L1 6L5.91 5.26L8 1Z" fill="#FFD60A" stroke="#FFD60A" stroke-linejoin="round"/>
-                                                    </svg>
-                                                </div>
-                                                <span class="impact-text">You both get credit for keeping the house tidy!</span>
-                                            </div>
-                                        </div>
-                                        <div class="celebration-stats">
-                                            <div class="stat-item">
-                                                <div class="stat-number">12</div>
-                                                <div class="stat-label">Pacts kept this month</div>
-                                            </div>
-                                            <div class="stat-divider"></div>
-                                            <div class="stat-item">
-                                                <div class="stat-number">98%</div>
-                                                <div class="stat-label">Follow-through rate</div>
-                                            </div>
-                                        </div>
-                                        <div class="celebration-actions">
-                                            <button class="primary-action-btn">
-                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                    <path d="M10 1L13 7L19 7L14.5 11L16 18L10 15L4 18L5.5 11L1 7L7 7L10 1Z" fill="currentColor"/>
-                                                </svg>
-                                                Send Thanks
                                             </button>
-                                            <button class="secondary-action-btn">View Details</button>
+                                        </div>
+                                    </div>
+                                    <div class="segment-control">
+                                        <div class="segment-option">Active</div>
+                                        <div class="segment-option active">Completed</div>
+                                    </div>
+                                    <div class="pacts-list">
+                                        <div class="pact-item completed-item">
+                                            <div class="pact-checkbox">
+                                                <div class="checkbox-circle checked">
+                                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                                        <path d="M2 6L5 9L10 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="pact-details">
+                                                <div class="pact-title">Take out recycling</div>
+                                                <div class="pact-meta">
+                                                    <span class="pact-person">with Mark</span>
+                                                    <span class="pact-due">Completed 2 hours ago</span>
+                                                </div>
+                                            </div>
+                                            <div class="pact-status-dot completed"></div>
+                                        </div>
+                                        <div class="pact-item completed-item">
+                                            <div class="pact-checkbox">
+                                                <div class="checkbox-circle checked">
+                                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                                        <path d="M2 6L5 9L10 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="pact-details">
+                                                <div class="pact-title">Pick up groceries</div>
+                                                <div class="pact-meta">
+                                                    <span class="pact-person">with Sarah</span>
+                                                    <span class="pact-due">Completed yesterday</span>
+                                                </div>
+                                            </div>
+                                            <div class="pact-status-dot completed"></div>
+                                        </div>
+                                        <div class="pact-item">
+                                            <div class="pact-checkbox">
+                                                <div class="checkbox-circle"></div>
+                                            </div>
+                                            <div class="pact-details">
+                                                <div class="pact-title">Call mom for her birthday</div>
+                                                <div class="pact-meta">
+                                                    <span class="pact-person">with Family</span>
+                                                    <span class="pact-due">Due this weekend</span>
+                                                </div>
+                                            </div>
+                                            <div class="pact-status-dot pending"></div>
+                                        </div>
+                                        <div class="pact-item">
+                                            <div class="pact-checkbox">
+                                                <div class="checkbox-circle"></div>
+                                            </div>
+                                            <div class="pact-details">
+                                                <div class="pact-title">Help move furniture</div>
+                                                <div class="pact-meta">
+                                                    <span class="pact-person">with Alex</span>
+                                                    <span class="pact-due">Due next week</span>
+                                                </div>
+                                            </div>
+                                            <div class="pact-status-dot pending"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -448,9 +487,9 @@
                 </div>
                 <div class="feature-text-content">
                     <div class="step-number">3</div>
-                    <h3 class="feature-headline">Celebrate the Follow-Through</h3>
+                    <h3 class="feature-headline">Build Trust, One Promise at a Time</h3>
                     <p class="feature-text">
-                        A simple checkmark brings a satisfying sense of accomplishment you both can share. It's a moment to recognize the follow-through, celebrating the small acts of care that weave strong connections.
+                        Every kept commitment strengthens reliability. It's not about points or scores - it's about building the quiet confidence of always following through and being the person everyone can count on.
                     </p>
                 </div>
             </div>
@@ -524,61 +563,41 @@
             <div class="faq-list">
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
-                        <span class="question-text">When will the app be available?</span>
+                        <span class="question-text">When will Pact be available?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
                     <div class="faq-answer" id="faq-answer-1" role="region">
-                        <p>We're launching in Q4 2025 on both iOS and Android simultaneously. Join our waitlist to help shape the features and be among the first to try Pact. The first 100 users get lifetime premium access free!</p>
+                        <p>Q4 2025 on iOS and Android. First 100 users get lifetime premium free!</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
-                        <span class="question-text">Will Pact cost anything?</span>
+                        <span class="question-text">Is Pact free to use?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
                     <div class="faq-answer" id="faq-answer-2" role="region">
-                        <p>Pact will be free for all essential features like tracking commitments and sending reminders. Premium features will include AI-powered suggestions, calendar integration, and location-based reminders. Early users get lifetime premium access at no cost!</p>
+                        <p>Yes! Core features are free. Premium adds AI suggestions and advanced reminders.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
-                        <span class="question-text">Is this just for romantic couples?</span>
+                        <span class="question-text">Is this only for couples?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
                     <div class="faq-answer" id="faq-answer-3" role="region">
-                        <p>Not at all! Pact is designed for any relationship where commitments matter—roommates splitting chores, family members coordinating care, friends planning events, or colleagues on shared projects. It's about accountability and care in all types of relationships.</p>
+                        <p>Not at all! Works for roommates, family, friends, or any relationship where commitments matter.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
-                        <span class="question-text">Why not just use texts or shared notes?</span>
+                        <span class="question-text">Why not just use texts or notes?</span>
                         <span class="faq-icon" aria-hidden="true"></span>
                     </button>
                     <div class="faq-answer" id="faq-answer-4" role="region">
-                        <p>Because texts create follow-up friction and get lost in conversation, while shared notes become transactional lists that add to the mental load. Pact is purpose-built to turn commitments into connection, with gentle reminders and shared celebration that strengthen your relationships.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
-                        <span class="question-text">How do you protect my data and privacy?</span>
-                        <span class="faq-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="faq-answer" id="faq-answer-5" role="region">
-                        <p>Your privacy is our priority. We use industry-standard encryption, never sell your data, and only store what's necessary to make Pact work. Your commitments and relationships are personal, and we treat them that way. Full privacy policy available at launch.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
-                        <span class="question-text">What if the other person doesn't want to use the app?</span>
-                        <span class="faq-icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="faq-answer" id="faq-answer-6" role="region">
-                        <p>Pact works even if only one person uses it! You can track your commitments privately and get reminders to follow through. When both people use it, the experience is enhanced with shared celebrations and mutual accountability, but it's valuable either way.</p>
+                        <p>Texts get lost and create awkward follow-ups. Pact turns commitments into connection with gentle reminders and shared celebrations.</p>
                     </div>
                 </div>
 
@@ -593,8 +612,7 @@
                 <div class="cta-content">
                     <h2 class="cta-headline">Ready to be the person everyone can count on?</h2>
                     <p class="cta-subheadline">
-                        Join our waitlist to help shape Pact's features and be first in line when we launch. 
-                        Your feedback will directly influence what we build.
+                        Join our waitlist and help shape Pact's features. Your feedback influences what we build.
                     </p>
                     <div class="cta-form">
                         <div class="email-input-container">
@@ -610,23 +628,12 @@
                 <div class="cta-divider"></div>
                 <div class="referral-nudge">
                     <span class="referral-icon" aria-hidden="true">💡</span>
-                    <p><strong>P.S. Know others who'd love this?</strong> We're looking for diverse perspectives—couples, roommates, families, and friend groups. Share this with people who matter to you. The more variety in our feedback, the better Pact becomes for everyone.</p>
+                    <p><strong>Know someone who'd love this?</strong> Share Pact with the people who matter most to you.</p>
                     <div class="sharing-actions">
-                        <button class="share-button primary" onclick="handleNativeShare()" aria-label="Share Pact with friends">
+                        <button class="share-button secondary" onclick="handleNativeShare()" aria-label="Share Pact with friends">
                             <span class="share-icon">🔗</span>
-                            <span class="share-text">Share Pact</span>
+                            <span class="share-text">Share</span>
                         </button>
-                        <div class="share-options">
-                            <button class="share-option" onclick="shareToTwitter()" aria-label="Share on Twitter">
-                                <span class="share-option-icon">🐦</span>
-                            </button>
-                            <button class="share-option" onclick="copyToClipboard()" aria-label="Copy link to clipboard">
-                                <span class="share-option-icon">📋</span>
-                            </button>
-                            <button class="share-option" onclick="shareViaEmail()" aria-label="Share via email">
-                                <span class="share-option-icon">✉️</span>
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
