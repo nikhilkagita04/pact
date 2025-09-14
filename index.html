@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pact - Be the Person Everyone Can Count On. Keep Your Commitments.</title>
-    <meta name="description" content="Pact is a simple app for tracking commitments and requests between you and the people in your life—partners, roommates, family, and friends. Coming soon.">
+    <meta name="description" content="Pact is a simple app for tracking commitments and requests between you and the people in your life—partners, roommates, family, and friends. Launching Q4 2025.">
     <meta name="theme-color" content="#4ade80">
     <meta name="keywords" content="commitment tracker, relationship app, roommate app, family coordination, accountability app, household management, promise keeper">
     <meta name="author" content="Pact">
     <meta property="og:title" content="Pact - Be the Person Everyone Can Count On. Keep Your Commitments.">
-    <meta property="og:description" content="Pact is a simple app for tracking commitments and requests between you and the people in your life—partners, roommates, family, and friends. Coming soon.">
+    <meta property="og:description" content="Pact is a simple app for tracking commitments and requests between you and the people in your life—partners, roommates, family, and friends. Launching Q4 2025.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pact.app">
-    <meta property="og:image" content="https://pact.app/og-image.svg">
+    <meta property="og:image" content="https://pact-7331b.web.app/assets/og-image.svg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Pact - Be the person everyone can count on">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Pact - Be the Person Everyone Can Count On. Keep Your Commitments.">
     <meta name="twitter:description" content="Pact is a simple app for tracking commitments and requests between you and the people in your life—partners, roommates, family, and friends. Launching Q4 2025.">
-    <meta name="twitter:image" content="https://pact.app/twitter-card.svg">
+    <meta name="twitter:image" content="https://pact-7331b.web.app/assets/twitter-card.svg">
     <meta name="twitter:image:alt" content="Pact - Be the person everyone can count on">
     
     <!-- Favicon (Generate these files before launch) -->
@@ -27,7 +27,7 @@
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="manifest" href="/assets/site.webmanifest">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,16 +35,16 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
     <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"></noscript>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="src/styles.css">
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <!-- Google Analytics (replace GA_MEASUREMENT_ID with your actual ID) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
+    </script> -->
     
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
@@ -493,17 +493,14 @@
     <section class="founder-section">
         <div class="container">
             <div class="founder-card">
-                <img src="founder.jpg" alt="Nikhil Kagita, Founder of Pact" class="founder-avatar" loading="lazy">
+                <img src="assets/founder.jpg" alt="Nikhil Kagita, Founder of Pact" class="founder-avatar" loading="lazy">
                 <div class="founder-content">
                     <h2 class="founder-headline">Our Mission, from Our Founder</h2>
                     <p class="mission-statement">
-                        <strong>Pact is built on a simple truth: small commitments matter.</strong> Whether it's picking up groceries, helping a friend move, or splitting household tasks with roommates – these little acts of care are the foundation of strong relationships.
+                        <strong>Pact is built on a simple truth: small commitments matter.</strong> These little acts of care are the foundation of strong relationships.
                     </p>
                     <p class="founder-text">
-                        "I created Pact because I kept forgetting the small things that matter most. Picking up something from the store, getting something from home, planning dates with my partner, calling friends back, or completing favors people asked me for. I had good intentions, but with everything on my plate, these commitments would slip through the cracks."
-                    </p>
-                    <p class="founder-text">
-                        "As a software engineer at Meta and Pinterest, I've seen how technology can solve complex problems. But the most important problem I wanted to solve was personal: how do we remember to show up for the people we care about? Pact is my answer – a simple reminder system that turns good intentions into meaningful actions."
+                        "I created Pact because I kept forgetting the small things that matter most. I had good intentions, but with everything on my plate, these commitments would slip through the cracks. As a software engineer at Meta and Pinterest, I wanted to solve a personal problem: how do we remember to show up for the people we care about?"
                     </p>
                     <div class="founder-signature">
                         <div class="founder-name">Nikhil Kagita</div>
@@ -673,11 +670,44 @@
         </div>
     </footer>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
+    <!-- Firebase SDK v10 (Latest) -->
+    <script type="module">
+      // Import Firebase modules
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+      import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+      import { getAnalytics, logEvent } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js';
 
-    <script src="script.js"></script>
+      // Firebase configuration (replace with your config)
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+        apiKey: "AIzaSyDz-gXgibry230sKFcHvwoAIuyTYdzRrdQ",
+        authDomain: "pact-7331b.firebaseapp.com",
+        projectId: "pact-7331b",
+        storageBucket: "pact-7331b.firebasestorage.app",
+        messagingSenderId: "801106561511",
+        appId: "1:801106561511:web:62d722a4c4ef103ec21542",
+        measurementId: "G-N39V66HL3P"
+        };
+
+      // Initialize Firebase
+      let app, db, analytics;
+      
+      if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
+        app = initializeApp(firebaseConfig);
+        db = getFirestore(app);
+        analytics = getAnalytics(app);
+        
+        // Make Firebase available globally
+        window.firebaseApp = app;
+        window.firebaseDb = db;
+        window.firebaseAnalytics = analytics;
+        window.addDoc = addDoc;
+        window.collection = collection;
+        window.serverTimestamp = serverTimestamp;
+        window.logEvent = logEvent;
+      }
+    </script>
+
+    <script src="src/script.js"></script>
 </body>
 </html>

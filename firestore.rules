@@ -1,0 +1,25 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Waitlist collection - allow anyone to create (sign up)
+    // but only authenticated admins can read/update/delete
+    match /waitlist/{document} {
+      allow create: if true &&
+        request.resource.data.keys().hasAll(['email', 'source', 'timestamp']) &&
+        request.resource.data.email is string &&
+        request.resource.data.email.matches('.*@.*\\..*') &&
+        request.resource.data.source is string;
+      
+      // Only allow reading/updating/deleting for authenticated users
+      // (you can add your admin email check here later)
+      allow read, update, delete: if false; // Disable for now, enable when you need admin access
+    }
+    
+    // Deny all other access by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

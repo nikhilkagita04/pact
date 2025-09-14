@@ -51,7 +51,7 @@
 5. Enable Firebase Hosting: **Yes**
 6. Copy the config object
 
-**Replace this in `script.js` (lines 9-17):**
+**Replace this in `index.html` (lines 681-689):**
 ```javascript
 const firebaseConfig = {
   apiKey: "your-actual-api-key",
@@ -59,7 +59,8 @@ const firebaseConfig = {
   projectId: "your-project-id",
   storageBucket: "your-project.appspot.com",
   messagingSenderId: "123456789",
-  appId: "1:123456789:web:abcdef123456"
+  appId: "1:123456789:web:abcdef123456",
+  measurementId: "G-XXXXXXXXXX"
 };
 ```
 

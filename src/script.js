@@ -1,49 +1,41 @@
 // Pact Landing Page JavaScript
 
-// Firebase Configuration
-let db;
-
-// Initialize Firebase (replace with your config)
-function initFirebase() {
-  // Firebase config will be added here
-  const firebaseConfig = {
-    // Add your Firebase config here
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
-
-  // Initialize Firebase only if config is provided
-  if (typeof firebase !== 'undefined' && firebaseConfig.apiKey !== "YOUR_API_KEY") {
-    firebase.initializeApp(firebaseConfig);
-    db = firebase.firestore();
-  }
+// Firebase functions (initialized in HTML)
+function isFirebaseReady() {
+  return window.firebaseDb && window.addDoc && window.collection && window.serverTimestamp;
 }
 
 // Submit email to Firebase Firestore
 async function submitToFirebase(email, source) {
-  if (!db) {
+  if (!isFirebaseReady()) {
     // Fallback if Firebase not configured
     console.log('Firebase not configured, using localStorage fallback');
     return Promise.resolve();
   }
 
   try {
-    await db.collection('waitlist').add({
+    const waitlistRef = window.collection(window.firebaseDb, 'waitlist');
+    await window.addDoc(waitlistRef, {
       email: email,
       source: source,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      timestamp: window.serverTimestamp(),
       userAgent: navigator.userAgent,
       referrer: document.referrer,
+      url: window.location.href,
       utm: {
         source: new URLSearchParams(window.location.search).get('utm_source'),
         medium: new URLSearchParams(window.location.search).get('utm_medium'),
         campaign: new URLSearchParams(window.location.search).get('utm_campaign')
       }
     });
+    
+    // Track with Firebase Analytics
+    if (window.firebaseAnalytics && window.logEvent) {
+      window.logEvent(window.firebaseAnalytics, 'sign_up', {
+        method: 'email',
+        source: source
+      });
+    }
     
     console.log('Email successfully added to waitlist');
   } catch (error) {
@@ -95,14 +87,7 @@ function handleEmailSignup(inputId) {
       // Store email locally for return visitor detection
       localStorage.setItem('pactBetaEmail', email);
       
-      // Track with Google Analytics if available
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'signup', {
-          event_category: 'engagement',
-          event_label: inputId,
-          value: 1
-        });
-      }
+      // Analytics tracking handled by Firebase Analytics
       
       showNotification('🎉 Welcome to Pact Insiders! You\'re in line for lifetime premium access.', 'success');
       
@@ -709,9 +694,6 @@ function initCelebrationAnimations() {
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Firebase first
-  initFirebase();
-  
   addScrollAnimationStyles();
   initScrollAnimations();
   initSmoothScrolling();
@@ -732,6 +714,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const existingEmail = localStorage.getItem('pactBetaEmail');
   if (existingEmail) {
     console.log('Returning beta user:', existingEmail);
+  }
+  
+  // Log Firebase status
+  if (isFirebaseReady()) {
+    console.log('Firebase initialized successfully');
+  } else {
+    console.log('Firebase not configured - using fallback mode');
   }
 });
 

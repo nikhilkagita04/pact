@@ -1,0 +1,37 @@
+{
+  "name": "pact-landing",
+  "version": "1.0.0",
+  "description": "Landing page for Pact - Be the person everyone can count on",
+  "main": "index.html",
+  "scripts": {
+    "dev": "firebase serve --host 0.0.0.0 --port 5000",
+    "start": "npm run dev",
+    "build": "echo 'Static site - no build step needed'",
+    "deploy": "firebase deploy",
+    "deploy:hosting": "firebase deploy --only hosting",
+    "deploy:firestore": "firebase deploy --only firestore",
+    "deploy:rules": "firebase deploy --only firestore:rules",
+    "logs": "firebase functions:log",
+    "setup": "firebase login && firebase use --add",
+    "status": "firebase projects:list",
+    "validate": "firebase deploy --only hosting --dry-run",
+    "clean": "firebase hosting:channel:delete preview",
+    "preview": "firebase hosting:channel:deploy preview"
+  },
+  "homepage": "https://pact-7331b.web.app",
+  "keywords": [
+    "pact",
+    "commitments",
+    "relationships",
+    "productivity",
+    "firebase"
+  ],
+  "author": "Nikhil Kagita <nikhilkagita97@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "firebase-tools": "^14.16.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
