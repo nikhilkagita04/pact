@@ -2718,6 +2718,32 @@ h4 {
   align-items: center;
 }
 
+/* Mockup Image Styles */
+.mockup-image {
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s ease;
+}
+
+.mockup-image:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .mockup-image {
+    max-width: 190px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mockup-image {
+    max-width: 170px;
+  }
+}
+
 .simple-mockup {
   /* Phone-like container */
   background: #1a1a1a;
@@ -2998,6 +3024,13 @@ h4 {
   margin: 0 auto;
 }
 
+.founder-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
 .founder-avatar {
   width: 100px;
   height: 100px;
@@ -3029,16 +3062,21 @@ h4 {
 
 .founder-name {
   font-weight: 600;
+  font-size: var(--font-size-body-large);
   color: var(--text-primary);
-  font-size: var(--font-size-title-medium);
 }
 
 .founder-title {
-  color: var(--text-tertiary);
   font-size: var(--font-size-body-medium);
+  color: var(--text-secondary);
+}
+
+.founder-signature {
+  text-align: center;
 }
 
 .founder-content .mission-statement {
+  font-style: italic;
   font-size: var(--font-size-body-large);
   color: var(--text-secondary);
   line-height: 1.6;
@@ -3157,7 +3195,6 @@ h4 {
   color: var(--text-secondary);
   line-height: 1.7;
 }
-
 /* Mobile responsive */
 @media (max-width: 768px) {
   .faq-question {
@@ -3959,7 +3996,6 @@ h4 {
     margin-bottom: 4px;
     animation: number-count 2s ease-out;
 }
-
 @keyframes number-count {
     0% { transform: scale(0); }
     50% { transform: scale(1.2); }
@@ -5522,39 +5558,7 @@ FINAL POLISH TO MATCH SCREENSHOTS
   }
 }
 
-/* High-Fidelity Phone Mockup Styles - iPhone 15 Pro Inspired */
-.phone-mockup {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: var(--space-lg);
-  perspective: 1000px;
-}
 
-.phone-frame {
-  width: 290px;
-  height: 590px;
-  background: 
-    linear-gradient(135deg, #1a1a1c 0%, #2d2d30 25%, #1f1f23 50%, #2a2a2d 75%, #1d1d1f 100%);
-  border-radius: 47px;
-  padding: 3px;
-  box-shadow: 
-    /* Outer shadows for depth */
-    0 0 0 0.5px rgba(255, 255, 255, 0.1),
-    0 2px 4px rgba(0, 0, 0, 0.2),
-    0 8px 16px rgba(0, 0, 0, 0.25),
-    0 16px 32px rgba(0, 0, 0, 0.2),
-    0 32px 64px rgba(0, 0, 0, 0.15),
-    /* Inner highlights and shadows */
-    inset 0 0.5px 1px rgba(255, 255, 255, 0.15),
-    inset 0 -0.5px 1px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-  position: relative;
-  transform: rotateX(1deg) rotateY(-0.5deg);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  backdrop-filter: blur(1px);
-}
 .phone-frame:hover {
   transform: rotateX(0deg) rotateY(0deg) scale(1.01);
   box-shadow: 
@@ -5568,7 +5572,6 @@ FINAL POLISH TO MATCH SCREENSHOTS
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
     inset 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
-
 /* Action Button (iPhone 15 Pro) - Left Side */
 .phone-frame::before {
   content: '';
@@ -6119,7 +6122,7 @@ FINAL POLISH TO MATCH SCREENSHOTS
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 22px 24px 10px;
+  padding: 24px 24px 14px;
   background: 
     linear-gradient(to bottom, 
       rgba(0, 0, 0, 1) 0%, 
@@ -6150,8 +6153,9 @@ FINAL POLISH TO MATCH SCREENSHOTS
 }
 
 .screen-title {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
+  letter-spacing: -0.02em;
   color: #ffffff;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
@@ -6185,9 +6189,9 @@ FINAL POLISH TO MATCH SCREENSHOTS
 .segment-control {
   display: flex;
   background: rgba(118, 118, 128, 0.24);
-  border-radius: 9px;
-  margin: 16px 20px 24px;
-  padding: 2px;
+  border-radius: 10px;
+  margin: 20px 20px 28px;
+  padding: 3px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -6304,8 +6308,8 @@ FINAL POLISH TO MATCH SCREENSHOTS
 }
 
 .pact-checkbox {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6313,10 +6317,10 @@ FINAL POLISH TO MATCH SCREENSHOTS
 }
 
 .checkbox-circle {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border: 2px solid var(--text-tertiary);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   background: transparent;
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   position: relative;
@@ -6331,7 +6335,8 @@ FINAL POLISH TO MATCH SCREENSHOTS
 .checkbox-circle.completed {
   background: var(--accent-primary);
   border-color: var(--accent-primary);
-  transform: scale(1.2);
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(79, 209, 199, 0.4);
 }
 
 .checkbox-circle.completed::after {
@@ -6364,21 +6369,22 @@ FINAL POLISH TO MATCH SCREENSHOTS
   flex: 1;
   min-width: 0;
 }
-
 .pact-title {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-family: var(--font-family);
   line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
 .pact-meta {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 13px;
+  gap: 14px;
+  font-size: 14px;
+  font-weight: 500;
   color: var(--text-tertiary);
   font-family: var(--font-family);
   font-weight: 400;
@@ -6399,14 +6405,15 @@ FINAL POLISH TO MATCH SCREENSHOTS
 }
 
 .pact-status-dot {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: var(--radius-sm);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 11px;
+  transition: all 0.2s ease;
 }
 
 .pact-status-dot.pending {
@@ -6702,8 +6709,9 @@ FINAL POLISH TO MATCH SCREENSHOTS
 }
 
 .stat-number {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
+  letter-spacing: -0.02em;
   color: #4ade80;
   margin-bottom: 4px;
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
@@ -7159,7 +7167,6 @@ FINAL POLISH TO MATCH SCREENSHOTS
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
-
 .share-option:active {
   transform: translateY(0);
   transition-duration: var(--duration-short2);
@@ -7723,6 +7730,10 @@ button:disabled:hover {
     padding: var(--space-xl);
   }
   
+  .founder-profile {
+    margin: 0 auto var(--space-lg);
+  }
+
   .founder-avatar {
     width: 100px;
     height: 100px;
@@ -7959,7 +7970,6 @@ html {
   color: #4ade80;
   padding: 20px;
 }
-
 .notification-app-icon {
   flex-shrink: 0;
 }
@@ -8111,7 +8121,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 22px 24px 10px;
+  padding: 24px 24px 14px;
   background: 
     linear-gradient(to bottom, 
       rgba(0, 0, 0, 1) 0%, 
@@ -8142,8 +8152,9 @@ html {
 }
 
 .screen-title {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
+  letter-spacing: -0.02em;
   color: #ffffff;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
@@ -8177,9 +8188,9 @@ html {
 .segment-control {
   display: flex;
   background: rgba(118, 118, 128, 0.24);
-  border-radius: 9px;
-  margin: 16px 20px 24px;
-  padding: 2px;
+  border-radius: 10px;
+  margin: 20px 20px 28px;
+  padding: 3px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -8297,8 +8308,8 @@ html {
 }
 
 .pact-checkbox {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8306,10 +8317,10 @@ html {
 }
 
 .checkbox-circle {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border: 2px solid var(--text-tertiary);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   background: transparent;
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   position: relative;
@@ -8324,7 +8335,8 @@ html {
 .checkbox-circle.completed {
   background: var(--accent-primary);
   border-color: var(--accent-primary);
-  transform: scale(1.2);
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(79, 209, 199, 0.4);
 }
 
 .checkbox-circle.completed::after {
@@ -8360,19 +8372,21 @@ html {
 }
 
 .pact-title {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-family: var(--font-family);
   line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
 .pact-meta {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 13px;
+  gap: 14px;
+  font-size: 14px;
+  font-weight: 500;
   color: var(--text-tertiary);
   font-family: var(--font-family);
   font-weight: 400;
@@ -8393,14 +8407,15 @@ html {
 }
 
 .pact-status-dot {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: var(--radius-sm);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 11px;
+  transition: all 0.2s ease;
 }
 
 .pact-status-dot.pending {
@@ -8696,8 +8711,9 @@ html {
 }
 
 .stat-number {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
+  letter-spacing: -0.02em;
   color: #4ade80;
   margin-bottom: 4px;
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
@@ -8751,7 +8767,6 @@ html {
   transform: scale(0.96) translateY(0);
   box-shadow: 0 1px 4px rgba(74, 222, 128, 0.3);
 }
-
 .secondary-action-btn {
   background: transparent;
   color: #4ade80;
@@ -9552,7 +9567,6 @@ html {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
   letter-spacing: -0.01em;
 }
-
 .invitation-subtitle {
   font-size: 14px;
   font-weight: 500;
@@ -10015,24 +10029,29 @@ html {
 
 /* Simple Pacts List Styles (without categories) */
 .pacts-list {
-  padding: 0 16px 32px;
+  padding: 0 20px 32px;
   background: #000;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .pacts-list .pact-item {
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 12px;
+  border-radius: 14px;
+  padding: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .pacts-list .pact-item:hover {
   background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  border-color: rgba(79, 209, 199, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Mobile responsiveness for pacts list */
@@ -10057,6 +10076,20 @@ html {
     padding: 12px;
   }
 }
+}
+
+/* Completed Item Styling */
+.pact-item.completed-item {
+  opacity: 0.75;
+}
+
+.pact-item.completed-item .pact-title {
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+.pact-item.completed-item .pact-meta {
+  opacity: 0.7;
 }
 
 /* Additional status dot styles for consistent content */
@@ -10116,14 +10149,16 @@ html {
 .form-section {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .form-label {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
 }
 
 .form-textarea {
@@ -10143,7 +10178,8 @@ html {
 .form-textarea:focus {
   outline: none;
   border-color: var(--accent-primary);
-  box-shadow: 0 0 0 2px rgba(79, 209, 199, 0.2);
+  box-shadow: 0 0 0 3px rgba(79, 209, 199, 0.15);
+  transform: translateY(-1px);
 }
 
 .form-textarea::placeholder {
@@ -10152,20 +10188,22 @@ html {
 
 .person-selector {
   display: flex;
-  gap: 8px;
+  gap: 12px;
   flex-wrap: wrap;
+  margin-top: 4px;
 }
 
 .person-option {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
+  gap: 8px;
+  padding: 10px 16px;
   background: var(--surface-container);
   border: 1px solid var(--surface-container-high);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-pill);
   cursor: pointer;
   transition: all var(--duration-medium2) var(--easing-standard);
+  font-weight: 500;
 }
 
 .person-option:hover {
@@ -10176,6 +10214,8 @@ html {
   background: var(--accent-primary);
   border-color: var(--accent-primary);
   color: var(--background-primary);
+  box-shadow: 0 2px 8px rgba(79, 209, 199, 0.3);
+  transform: translateY(-1px);
 }
 
 .person-avatar {
@@ -10199,17 +10239,18 @@ html {
 .due-selector {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6px;
+  gap: 10px;
+  margin-top: 4px;
 }
 
 .due-option {
-  padding: 8px 12px;
+  padding: 12px 16px;
   background: var(--surface-container);
   border: 1px solid var(--surface-container-high);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-pill);
   text-align: center;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   transition: all var(--duration-medium2) var(--easing-standard);
 }
@@ -10222,6 +10263,8 @@ html {
   background: var(--accent-primary);
   border-color: var(--accent-primary);
   color: var(--background-primary);
+  box-shadow: 0 2px 8px rgba(79, 209, 199, 0.3);
+  transform: translateY(-1px);
 }
 
 .category-selector {
@@ -10293,37 +10336,16 @@ html {
 .form-button.primary {
   background: var(--accent-primary);
   color: var(--background-primary);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 12px rgba(79, 209, 199, 0.3);
+  font-weight: 600;
 }
 
 .form-button.primary:hover {
   background: var(--accent-secondary);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 6px 16px rgba(79, 209, 199, 0.4);
 }
 
-/* Popup Modal Styles */
-.popup-modal-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 100%);
-  display: flex;
-  flex-direction: column;
-  z-index: 1000;
-  animation: fadeIn 0.4s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 
 .popup-modal {
   background: transparent;
@@ -10342,7 +10364,6 @@ html {
   flex-direction: column;
   gap: 16px;
 }
-
 .form-header {
   display: flex;
   justify-content: space-between;
