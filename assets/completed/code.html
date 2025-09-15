@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Plus+Jakarta+Sans:wght@400;500;700;800" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<style type="text/tailwindcss">
+    @keyframes pop-in {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+    .animate-pop-in {
+      animation: pop-in 0.5s ease-out forwards;
+    }
+    .animate-pulse-once {
+      animation: pulse 0.5s ease-in-out;
+    }
+    .avatar-1 {
+      animation-delay: 0.1s;
+    }
+    .avatar-2 {
+      animation-delay: 0.2s;
+    }
+    .heart-icon {
+      animation-delay: 0.4s;
+    }
+  </style>
+<title>Pact Complete</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#1A1A1A]">
+<div class="relative flex h-screen w-full flex-col justify-between overflow-hidden" style='font-family: "Plus Jakarta Sans", sans-serif;'>
+<div class="flex flex-1 flex-col items-center justify-center p-8">
+<div class="flex items-center justify-center space-x-4">
+<div class="animate-pop-in avatar-1">
+<div class="aspect-square w-24 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCScn4A16ISkL9ZE2trUbxW5BnHuBojJTOBp8-Q7Evyok4dRBaG3V8xmL9t4Ug9W0h3xeKfkfbXySWft8VLqncPvoOoXhM30odhV4xbf8knsQWOriP6koMug7Ko7OODB_gVZ2vMdbwTc5TLXL2622HHR9cNYGsxNYqk2cmkg1QJ9BT4smksc_4bYgdd4g8IqMXI-6ts691UPg0r-99xmZJLJtZxNL4p7QGK_83AIGpiWpPRRQfldSGZgFq1r4NfVPGXK5VqmRf_VT_h");'></div>
+</div>
+<div class="animate-pop-in heart-icon">
+<span class="animate-pulse-once text-4xl text-[#FF6B6B]">❤️</span>
+</div>
+<div class="animate-pop-in avatar-2">
+<div class="aspect-square w-24 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA732CG33VbYhX_gCya0ra2C6xhS3ABt9TirLR2FtNQy319VDHSl_5C_zYzkCMuudHN-RSOR5a1bpB7atTaOVD_kpK6-5Qsl3cYkBF6VU-KxymaQ85uArjeu2nWJxagZv9DqFP145cUCt9dzH5lZ3vhpZxngfASb89OpVvyeV4B9asT7SnlFDD1QWyximfLE4UdgSMbqLU7E4kjIJqTBPYxEePpFEjgjsiJyX2yHp5Lz1C4KwgqPBkVPYV8eJjRdHXrEO31siQ6_LGi");'></div>
+</div>
+</div>
+<h1 class="animate-pop-in mt-12 text-center text-5xl font-bold tracking-tighter text-white" style="animation-delay: 0.6s;">Pact Complete!</h1>
+<p class="animate-pop-in mt-4 text-lg text-gray-300" style="animation-delay: 0.7s;">Alex picked up the soup.</p>
+</div>
+<div class="w-full p-6">
+<button class="flex w-full cursor-pointer items-center justify-center rounded-full bg-[#11d4c1] py-4 text-lg font-bold text-black shadow-lg shadow-teal-500/20 transition-transform duration-200 ease-in-out hover:scale-105 active:scale-100">
+        Send a ❤️
+      </button>
+</div>
+</div>
+
+</body></html>

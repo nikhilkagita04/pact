@@ -35,6 +35,22 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
     <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"></noscript>
+    
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+      /* Critical styles for immediate rendering */
+      body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background-color:#1a1f2e;color:#f8f6f0;line-height:1.6;margin:0;padding:0;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+      .hero-section{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(135deg,#1a1f2e 0%,#252b3d 50%,#2f3447 100%)}
+      .container{max-width:1200px;margin:0 auto;padding:0 2rem}
+      .hero-headline{font-size:clamp(2.5rem,5.5vw,4rem);font-weight:700;line-height:1.2;letter-spacing:-0.01em;margin-bottom:1.5rem}
+      .hero-subheadline{font-size:1.25rem;color:#e0ddd4;line-height:1.6;margin-bottom:2rem;max-width:600px}
+      .cta-button{background:linear-gradient(135deg,#4fd1c7,#38b2ac);color:#1a1f2e;border:none;padding:1.5rem 3rem;border-radius:9999px;font-size:1rem;font-weight:500;cursor:pointer;transition:all 300ms cubic-bezier(0.05,0.7,0.1,1);box-shadow:0 4px 6px -1px rgba(0,0,0,0.3);min-height:48px;display:inline-flex;align-items:center;justify-content:center}
+      .email-input{background:rgba(248,246,240,0.05);border:1px solid rgba(248,246,240,0.1);color:#f8f6f0;padding:1rem 1.5rem;border-radius:9999px;font-size:1rem;width:100%;max-width:400px;margin-right:1rem}
+      .email-input::placeholder{color:#c4c1b8}
+      .email-input-container{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+      @media (max-width:768px){.container{padding:0 1.5rem}.email-input-container{flex-direction:column;align-items:stretch}.email-input{margin-right:0;margin-bottom:1rem}}
+    </style>
+    
     <link rel="stylesheet" href="src/styles.css">
     
     <!-- Google Analytics (replace GA_MEASUREMENT_ID with your actual ID) -->
@@ -45,6 +61,38 @@
       gtag('js', new Date());
       gtag('config', 'GA_MEASUREMENT_ID');
     </script> -->
+    
+    <!-- Performance Monitoring -->
+    <script>
+      // Core Web Vitals monitoring
+      if ('PerformanceObserver' in window) {
+        // LCP monitoring
+        new PerformanceObserver((entryList) => {
+          const entries = entryList.getEntries();
+          const lastEntry = entries[entries.length - 1];
+          console.log('LCP:', lastEntry.startTime);
+        }).observe({entryTypes: ['largest-contentful-paint']});
+        
+        // FID monitoring
+        new PerformanceObserver((entryList) => {
+          const entries = entryList.getEntries();
+          entries.forEach(entry => {
+            console.log('FID:', entry.processingStart - entry.startTime);
+          });
+        }).observe({entryTypes: ['first-input']});
+        
+        // CLS monitoring
+        new PerformanceObserver((entryList) => {
+          let clsValue = 0;
+          for (const entry of entryList.getEntries()) {
+            if (!entry.hadRecentInput) {
+              clsValue += entry.value;
+            }
+          }
+          console.log('CLS:', clsValue);
+        }).observe({entryTypes: ['layout-shift']});
+      }
+    </script>
     
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
@@ -72,6 +120,7 @@
     <!-- Skip Links for Accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <a href="#hero-cta" class="skip-link">Skip to signup form</a>
+    <a href="#faq-section" class="skip-link">Skip to FAQ</a>
     
     <!-- Hero Section -->
     <section class="hero-section" id="main-content">
@@ -83,13 +132,13 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <div class="hero-badge">
-                        <span class="badge-text">Launching Q4 2025</span>
+                        <span class="badge-text">🚀 Launching Q4 2025 • Limited Early Access</span>
                     </div>
                     <h1 class="hero-headline">
                         Be the person everyone can count on.
                     </h1>
                     <p class="hero-subheadline">
-                        Pact is a simple app for tracking commitments and requests between you and the people in your life—partners, roommates, family, and friends.
+                        For the small, important promises that weave our lives together. Pact is a simple, beautiful space to share commitments with the people who matter most.
                     </p>
                     <div class="cta-form" id="hero-cta">
                         <div class="email-input-container">
@@ -100,7 +149,18 @@
                                 <span class="button-icon" aria-hidden="true">→</span>
                             </button>
                         </div>
-                        <p class="microcopy" id="email-hero-help"><span class="material-icons-round microcopy-icon" aria-hidden="true">🎁</span> First 100 users get lifetime premium free! Your email is safe.</p>
+                        <div class="microcopy" id="email-hero-help">
+                            <div class="microcopy-line">
+                                <span class="material-icons-round microcopy-icon" aria-hidden="true">🎁</span>
+                                <strong>Free lifetime premium</strong> for first 100 users!
+                            </div>
+                            <div class="microcopy-line">
+                                <span class="material-icons-round microcopy-icon" aria-hidden="true">shield</span>
+                                Your email is safe—no spam, ever.
+                            </div>
+                        </div>
+                        <div id="email-hero-error" class="error-message" style="display: none; color: #ff7043; font-size: 0.875rem; margin-top: 0.5rem;" role="alert"></div>
+                        <div id="email-hero-success" class="success-message" style="display: none; color: #4ade80; font-size: 0.875rem; margin-top: 0.5rem;" role="status"></div>
                     </div>
                 </div>
             </div>
@@ -111,47 +171,47 @@
     <section class="how-pact-works-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-headline">How Pact Turns Promises into Connection</h2>
+                <h2 class="section-headline">From a Simple Word to a Shared Action</h2>
                 <p class="section-subheadline">
-                    Every small promise is a chance to show someone they can count on you. Whether you're partners coordinating household tasks, roommates splitting chores, or family staying connected—Pact helps you follow through on what matters most.
+                    Pact is designed to feel less like a to-do list and more like a digital handshake. It’s a quiet, shared space to turn good intentions into reliable actions that strengthen your connections.
                 </p>
             </div>
 
             <div class="feature-step">
                 <div class="feature-mockup">
-                    <img src="assets/request/screen.png" alt="Pact request screen showing a new request from Emily" class="mockup-image" loading="lazy">
+                    <img src="assets/request/screen.png" alt="Pact request screen showing a new request from Emily" class="mockup-image" loading="lazy" width="320" height="640">
                 </div>
                 <div class="feature-text-content">
                     <div class="feature-step-tag">Step 1</div>
-                    <h3 class="feature-headline">Turn "I'll do it" into a Shared Pact</h3>
+                    <h3 class="feature-headline">Capture Promises, Not Just Tasks</h3>
                     <p class="feature-text">
-                        Go from a casual "I'll do it" to a clear, shared promise. Pact is your digital handshake. It’s not about assigning tasks, but about creating a mutual understanding with no room for miscommunication or nagging.
+                        A simple promise made in conversation—"I'll pick up the soup"—is a thread that strengthens your connection. Pact gives those small promises a home, turning a casual, verbal agreement into a clear, shared commitment. It's not about assigning tasks; it's about creating a beautiful, mutual understanding that honors your word.
                     </p>
                 </div>
             </div>
 
             <div class="feature-step">
                 <div class="feature-mockup">
-                    <img src="assets/list/screen.png" alt="Pact list screen showing active and completed pacts" class="mockup-image" loading="lazy">
+                    <img src="assets/list/screen.png" alt="Pact list screen showing active and completed pacts" class="mockup-image" loading="lazy" width="320" height="640">
                 </div>
                 <div class="feature-text-content">
-                    <div class="step-number">2</div>
-                    <h3 class="feature-headline">Never Let a Promise Slip Away</h3>
+                    <div class="feature-step-tag">Step 2</div>
+                    <h3 class="feature-headline">A Clear View, A Lighter Mind</h3>
                     <p class="feature-text">
-                        All your commitments in one simple list. From household tasks to family calls, every promise gets the attention it deserves. Less mental burden, more shared understanding. Never forget what matters to the people who matter most.
+                        See all your shared commitments in one simple, beautiful view. No more mental clutter or forgotten promises lost in text threads. Pact replaces the anxiety of remembering with the quiet confidence of a shared space, so you can focus on what really matters—being present for the people in your life.
                     </p>
                 </div>
             </div>
 
             <div class="feature-step">
                 <div class="feature-mockup">
-                    <img src="assets/completed/screen.png" alt="Pact completion screen showing celebration when a pact is completed" class="mockup-image" loading="lazy">
+                    <img src="assets/completed/screen.png" alt="Pact completion screen showing celebration when a pact is completed" class="mockup-image" loading="lazy" width="320" height="640">
                 </div>
                 <div class="feature-text-content">
-                    <div class="step-number">3</div>
-                    <h3 class="feature-headline">Build Trust, One Promise at a Time</h3>
+                    <div class="feature-step-tag">Step 3</div>
+                    <h3 class="feature-headline">Celebrate the Follow-Through</h3>
                     <p class="feature-text">
-                        Every kept commitment strengthens reliability. It's not about points or scores - it's about building the quiet confidence of always following through and being the person everyone can count on.
+                        Turning your word into action is what builds trust. Pact makes completion a small, shared celebration. It’s more than just a checked-off item; it's a moment of connection that reinforces reliability, one follow-through at a time.
                     </p>
                 </div>
             </div>
@@ -162,62 +222,55 @@
     <section class="problem-section">
         <div class="container">
             <div class="problem-header">
-                <h2 class="section-headline">We've all felt the disconnect.</h2>
+                <h2 class="section-headline">Good Intentions Need a Better Home.</h2>
                 <p class="section-subheadline">
-                    Life gets busy. Amidst the chaos, our good intentions can get lost in translation, and the simple act of showing up for each other becomes a challenge.
+                    Our most important commitments get lost in noisy text threads and to-do lists designed for tasks, not trust. This creates quiet friction in the connections that matter most.
                 </p>
             </div>
             <div class="problem-cards">
                 <div class="problem-card">
                     <div class="card-icon"><span class="material-icons-round">sync_disabled</span></div>
-                    <h3 class="card-title">The Weight of Good Intentions</h3>
-                    <p class="card-text">Juggling household tasks, family needs, and favors for friends is exhausting. The endless mental list of commitments made to people you care about means good intentions get lost in the shuffle.</p>
+                    <h3 class="card-title">The Mental Load of Good Intentions</h3>
+                    <p class="card-text">Juggling household tasks, family needs, and favors for friends is exhausting. The endless mental list of commitments made to people you care about means your best intentions get lost in the shuffle.</p>
                 </div>
                 <div class="problem-card">
                     <div class="card-icon"><span class="material-icons-round">textsms</span></div>
-                    <h3 class="card-title">The Follow-Up Friction</h3>
-                    <p class="card-text">Sending a reminder text can feel awkward and make you feel like a nag. Simple favors can become sources of tension, getting in the way of easy collaboration.</p>
+                    <h3 class="card-title">The Friction of Following Up</h3>
+                    <p class="card-text">Sending a reminder text can feel awkward and demanding. Simple favors become sources of tension, and what should be easy collaboration turns into uncomfortable nagging.</p>
                 </div>
                 <div class="problem-card">
                     <div class="card-icon"><span class="material-icons-round">sentiment_dissatisfied</span></div>
-                    <h3 class="card-title">The Dropped Thread</h3>
-                    <p class="card-text">That sinking feeling when a small commitment is forgotten. It wasn't just a task—it was a chance to connect and show you're on the same team.</p>
+                    <h3 class="card-title">The Quiet Disappointment</h3>
+                    <p class="card-text">That sinking feeling when a small commitment is forgotten. It wasn't just about the task—it was a missed opportunity to connect and show you're on the same team.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Founder's Note Section -->
-    <section class="founder-section">
+    <!-- <section class="founder-section">
         <div class="container">
             <div class="founder-card">
                 <div class="founder-profile">
-                    <img src="assets/founder.jpg" alt="Nikhil Kagita, Founder of Pact" class="founder-avatar" loading="lazy">
+                    <img src="assets/founder.jpg" alt="Nikhil Kagita, Builder of Pact" class="founder-avatar" loading="lazy">
                     <div class="founder-signature">
                         <div class="founder-name">Nikhil Kagita</div>
-                        <div class="founder-title"><a href="https://www.linkedin.com/in/nikhil-kagita/" target="_blank" rel="noopener" style="color: var(--accent-primary); text-decoration: none;">LinkedIn</a></div>
+                        <div class="founder-title"><a href="https://www.linkedin.com/in/nikhil-kagita/" target="_blank" rel="noopener" style="color: var(--accent-primary); text-decoration: none;" alt="Nikhil Kagita's LinkedIn Profile">LinkedIn</a></div>
                     </div>
                 </div>
                 <div class="founder-content">
-                    <h2 class="founder-headline">A Note from Our Founder</h2>
+                    <h2 class="founder-headline">A Note from the Builder</h2>
                     <p class="founder-text">
-                        "We're building Pact because we believe trust is the foundation of every great relationship, and trust is built on kept promises. In our busy lives, small commitments—the threads that weave our relationships together—get lost in texts and mental to-do lists, creating quiet friction. I wanted to create a more intentional way to handle these promises, something that feels less like a task manager and more like a digital handshake. Pact is our answer: a relationship app designed to replace the anxiety of forgetting with the quiet confidence of following through, helping us spend less energy tracking promises and more energy strengthening the connections that matter most."
+                        "I'm building Pact because I believe trust is the foundation of every great relationship, and trust is built on kept promises. In our busy lives, small commitments—the threads that weave our relationships together—get lost in texts and mental to-do lists, creating quiet friction. I wanted to create a more intentional way to handle these commitments, something that feels less like a task manager and more like a digital handshake. Pact is my answer: a relationship app designed to replace the anxiety of forgetting with the quiet confidence of following through, helping us spend less energy managing commitments and more energy strengthening the connections that matter most."
                     </p>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- FAQ Section -->
-    <section class="faq-section">
+    <section class="faq-section" id="faq-section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-headline">Frequently Asked Questions</h2>
-                <p class="section-subheadline">
-                    Got questions? We've got answers.
-                </p>
-            </div>
-            
             <div class="faq-list">
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
@@ -266,33 +319,31 @@
     <!-- Final CTA Section -->
     <section class="final-cta-section">
         <div class="container">
-            <div class="final-cta-card">
-                <div class="cta-content">
-                    <h2 class="cta-headline">Ready to be the person everyone can count on?</h2>
-                    <p class="cta-subheadline">
-                        Join our waitlist and help shape Pact's features. Your feedback influences what we build.
-                    </p>
-                    <div class="cta-form">
-                        <div class="email-input-container">
-                            <input type="email" id="email-final" placeholder="Enter your email" class="email-input" aria-label="Email address for final call to action">
-                            <button type="button" class="cta-button primary-button" onclick="handleEmailSignup('email-final')">
-                                <span class="button-text">Get Early Access</span>
-                                <span class="button-icon">→</span>
-                            </button>
-                        </div>
-                        <p class="microcopy"><span class="material-icons-round microcopy-icon" aria-hidden="true">🎁</span> First 100 users get lifetime premium free! Your email is safe.</p>
-                    </div>
-                </div>
-                <div class="cta-divider"></div>
-                <div class="referral-nudge">
-                    <span class="referral-icon" aria-hidden="true">💡</span>
-                    <p><strong>Know someone who'd love this?</strong> Share Pact with the people who matter most to you.</p>
-                    <div class="sharing-actions">
-                        <button class="share-button secondary" onclick="handleNativeShare()" aria-label="Share Pact with friends">
-                            <span class="share-icon">🔗</span>
-                            <span class="share-text">Share</span>
+            <div class="cta-content">
+                <h2 class="cta-headline">Ready to be the person everyone can count on?</h2>
+                <p class="cta-subheadline">
+                    Join the waitlist to get early access and help us build a more intentional way to keep our commitments.
+                </p>
+                <div class="cta-form">
+                    <div class="email-input-container">
+                        <input type="email" id="email-final" placeholder="Enter your email" class="email-input" aria-label="Email address for final call to action" aria-describedby="email-final-help" required>
+                        <button type="button" class="cta-button primary-button" onclick="handleEmailSignup('email-final')" aria-describedby="email-final-help">
+                            <span class="button-text">Get Early Access</span>
+                            <span class="button-icon" aria-hidden="true">→</span>
                         </button>
                     </div>
+                    <div class="microcopy" id="email-final-help">
+                        <div class="microcopy-line">
+                            <span class="material-icons-round microcopy-icon" aria-hidden="true">🎁</span>
+                            <strong>Free lifetime premium</strong> for first 100 users!
+                        </div>
+                        <div class="microcopy-line">
+                            <span class="material-icons-round microcopy-icon" aria-hidden="true">shield</span>
+                            Your email is safe—no spam, ever.
+                        </div>
+                    </div>
+                    <div id="email-final-error" class="error-message" style="display: none; color: #ff7043; font-size: 0.875rem; margin-top: 0.5rem;" role="alert"></div>
+                    <div id="email-final-success" class="success-message" style="display: none; color: #4ade80; font-size: 0.875rem; margin-top: 0.5rem;" role="status"></div>
                 </div>
             </div>
         </div>
@@ -308,28 +359,20 @@
                         <span class="footer-logo-text">Pact</span>
                     </a>
                     <p class="footer-description">
-                        Be the person everyone can count on. Track commitments and build stronger relationships through simple, meaningful follow-through.
+                        A simple, beautiful space to share commitments and build stronger connections.
                     </p>
                 </div>
                 
                 <div class="footer-links">
-                    <div class="footer-section">
-                        <h4 class="footer-section-title">Legal</h4>
-                        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
-                        <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h4 class="footer-section-title">Support</h4>
-                        <a href="mailto:nikhilkagita97@gmail.com" class="footer-link">Contact Us</a>
-                        <a href="mailto:nikhilkagita97@gmail.com" class="footer-link">Get Help</a>
-                    </div>
+                    <a href="privacy-policy.html" class="footer-link">Privacy</a>
+                    <a href="terms-of-service.html" class="footer-link">Terms</a>
+                    <a href="mailto:nikhilkagita97@gmail.com" class="footer-link">Contact</a>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p class="footer-copyright">
-                    © 2025 Pact LLC. All rights reserved. Built with ❤️ for meaningful connections.
+                    © 2025 Pact LLC. All rights reserved.
                 </p>
             </div>
         </div>
