@@ -83,6 +83,59 @@
   box-sizing: border-box;
 }
 
+/* Pact Logo Styles */
+.pact-logo {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  color: white;
+  line-height: 1;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.pact-logo:hover {
+  color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+/* Logo size variations */
+.pact-logo--small {
+  font-size: 1.5rem; /* 24px */
+}
+
+.pact-logo--medium {
+  font-size: 2.25rem; /* 36px */
+}
+
+.pact-logo--large {
+  font-size: 3.75rem; /* 60px */
+}
+
+.pact-logo--xl {
+  font-size: 6rem; /* 96px */
+}
+
+/* Header logo positioning */
+.header-logo {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .header-logo {
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+  
+  .pact-logo--medium {
+    font-size: 1.75rem; /* 28px on mobile */
+  }
+}
+
 html::before, html::after,
 body::before, body::after {
   /* Aggressive Reset for Pseudo-elements */
@@ -7418,19 +7471,17 @@ FINAL POLISH TO MATCH SCREENSHOTS
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
   margin-bottom: var(--space-md);
   text-decoration: none;
   color: var(--text-primary);
 }
 
-.footer-logo-icon {
-  font-size: 1.5rem;
+.footer-logo .pact-logo {
+  color: var(--text-primary);
 }
 
-.footer-logo-text {
-  font-size: var(--font-size-body-large);
-  font-weight: 500;
+.footer-logo .pact-logo:hover {
+  color: var(--accent-primary);
 }
 
 .footer-description {
@@ -9429,19 +9480,17 @@ html {
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
   margin-bottom: var(--space-md);
   text-decoration: none;
   color: var(--text-primary);
 }
 
-.footer-logo-icon {
-  font-size: 1.5rem;
+.footer-logo .pact-logo {
+  color: var(--text-primary);
 }
 
-.footer-logo-text {
-  font-size: var(--font-size-body-large);
-  font-weight: 500;
+.footer-logo .pact-logo:hover {
+  color: var(--accent-primary);
 }
 
 .footer-description {
