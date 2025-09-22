@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Picture - 400x400</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .profile-pic {
+            width: 400px;
+            height: 400px;
+            background: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+        .logo {
+            font-size: 120px;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            line-height: 1;
+        }
+        /* Instructions */
+        .instructions {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        Right-click on the square below → "Save image as..." or take a screenshot<br>
+        Size: 400×400px - Perfect for Twitter & LinkedIn profile pictures
+    </div>
+    
+    <div class="profile-pic">
+        <div class="logo">Pact.</div>
+    </div>
+</body>
+</html>
