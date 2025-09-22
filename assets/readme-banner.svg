@@ -1,0 +1,26 @@
+<svg width="800" height="200" viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="800" height="200" fill="#121212"/>
+    
+    <!-- Main content centered -->
+    <g transform="translate(400, 100)">
+        <!-- Pact. logo -->
+        <text x="0" y="-20" 
+              font-family="SF Pro Display, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+              font-size="48" 
+              font-weight="500" 
+              letter-spacing="-0.5px" 
+              text-anchor="middle" 
+              fill="white">Pact.</text>
+        
+        <!-- Tagline -->
+        <text x="0" y="15" 
+              font-family="SF Pro Display, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+              font-size="16" 
+              font-weight="400" 
+              text-anchor="middle" 
+              fill="#E0DDD4">Be the person everyone can count on.</text>
+        
+        <!-- Subtle accent line -->
+        <rect x="-50" y="35" width="100" height="2" fill="#4fd1c7" opacity="0.6"/>
+    </g>
+</svg>

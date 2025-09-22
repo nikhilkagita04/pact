@@ -1,8 +1,14 @@
-# 🤝 Pact Landing Page
+<div align="center">
+  <img src="assets/readme-banner.svg" alt="Pact - Be the person everyone can count on" width="100%">
+</div>
 
-Landing page for Pact - an app for tracking commitments between you and the people in your life.
+# Pact
 
-**Live Site**: https://pact-7331b.web.app
+**A relationship app for tracking commitments between you and the people in your life.**
+
+Turn good intentions into reliable actions. Pact helps you keep promises to partners, roommates, family, and friends—strengthening trust through follow-through.
+
+**🌐 Live Site**: [pact.llc](https://pact.llc) | **🚀 Status**: Launching Q4 2025
 
 ## 💡 Our "Why": The Story Behind Pact
 
