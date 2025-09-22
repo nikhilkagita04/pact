@@ -2,24 +2,26 @@
   <!-- Background -->
   <rect width="1200" height="600" fill="#121212"/>
   
-  <!-- Main content -->
-  <g transform="translate(100, 140)">
-    <!-- Logo/Icon -->
-    <circle cx="80" cy="80" r="60" fill="#4ade80" opacity="0.2"/>
-    <text x="80" y="100" font-family="Arial, sans-serif" font-size="60" text-anchor="middle" fill="#4ade80">🤝</text>
+  <!-- Main content centered -->
+  <g transform="translate(600, 300)">
+    <!-- Pact. logo -->
+    <text x="0" y="-30" 
+          font-family="SF Pro Display, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+          font-size="80" 
+          font-weight="500" 
+          letter-spacing="-0.5px" 
+          text-anchor="middle" 
+          fill="white">Pact.</text>
     
-    <!-- Title -->
-    <text x="200" y="60" font-family="SF Pro Display, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="48" font-weight="500" letter-spacing="-0.5px" fill="#f8f6f0">Pact.</text>
-    <text x="200" y="110" font-family="Arial, sans-serif" font-size="32" fill="#e0ddd4">Be the person everyone can count on</text>
+    <!-- Tagline -->
+    <text x="0" y="30" 
+          font-family="SF Pro Display, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+          font-size="28" 
+          font-weight="400" 
+          text-anchor="middle" 
+          fill="#E0DDD4">Be the person everyone can count on.</text>
     
-    <!-- Subtitle -->
-    <text x="200" y="160" font-family="Arial, sans-serif" font-size="24" fill="#c4c1b8">Track commitments with partners, roommates, family, and friends</text>
-    
-    <!-- CTA -->
-    <rect x="200" y="220" width="280" height="60" rx="30" fill="#4ade80"/>
-    <text x="340" y="260" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#1a2e1a">Launching Q4 2025</text>
+    <!-- Subtle accent line -->
+    <rect x="-100" y="60" width="200" height="3" fill="#4fd1c7" opacity="0.6"/>
   </g>
-  
-  <!-- Bottom accent -->
-  <rect x="0" y="550" width="1200" height="50" fill="#4ade80" opacity="0.1"/>
 </svg>
