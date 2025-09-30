@@ -65,6 +65,14 @@ temp/
 dist/
 build/
 
+# Python backend specific
+backend/venv/
+backend/.env
+backend/__pycache__/
+backend/*.pyc
+backend/.pytest_cache/
+backend/service-account-key.json
+
 # Local development files
 test-*.html
 *.test.html
