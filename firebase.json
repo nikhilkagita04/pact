@@ -5,10 +5,15 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**",
+      "backend/**",
+      "mobile/**",
+      "scripts/**",
       "docs/**",
       "package*.json",
       "README.md",
-      ".gitignore"
+      ".gitignore",
+      "*.sh",
+      "*.log"
     ],
     "rewrites": [
       {

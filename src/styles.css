@@ -420,9 +420,9 @@ h4 {
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   color: var(--background-primary);
   border: none;
-  padding: 0.875rem 1.5rem;
+  padding: 0.875rem 1.75rem;
   border-radius: var(--radius-pill);
-  font-size: var(--font-size-body-large);
+  font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
   transition: all var(--duration-medium2) var(--easing-emphasized);
@@ -430,6 +430,7 @@ h4 {
   white-space: nowrap;
   flex-shrink: 0;
   margin-left: 4px;
+  letter-spacing: 0.01em;
 }
 
 .cta-button:hover {
@@ -466,14 +467,14 @@ h4 {
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
   animation: fadeInUp var(--duration-long2) var(--easing-emphasized);
 }
 
 .hero-subheadline {
   font-size: var(--font-size-title-large);
   color: var(--text-tertiary);
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--space-2xl);
   line-height: 1.5;
   max-width: 700px;
   margin-left: auto;
@@ -482,7 +483,7 @@ h4 {
 }
 
 .cta-form {
-  max-width: 500px;
+  max-width: 580px;
   margin: 0 auto;
   position: relative;
 }
@@ -522,13 +523,13 @@ h4 {
   flex: 1;
   border: none;
   background: transparent;
-  padding: 0.75rem 1rem;
-  font-size: 0.85rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
   color: var(--text-primary);
   font-family: var(--font-family);
   outline: none;
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.5;
   min-width: 0;
   border-radius: 0;
   margin-right: 4px;
@@ -536,6 +537,7 @@ h4 {
   height: auto;
   display: block;
   min-height: auto;
+  letter-spacing: 0.01em;
 }
 
 .email-input:focus,
@@ -548,9 +550,10 @@ h4 {
 
 .email-input::placeholder {
   color: var(--text-tertiary);
-  opacity: 0.8;
+  opacity: 0.75;
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
 }
 
 .email-input:focus {
@@ -4980,7 +4983,7 @@ FINAL POLISH TO MATCH SCREENSHOTS
 }
 
 .cta-form {
-  max-width: 500px;
+  max-width: 580px;
   margin: 0 auto;
   position: relative;
 }
@@ -5395,13 +5398,13 @@ FINAL POLISH TO MATCH SCREENSHOTS
   .hero-headline {
     font-size: clamp(1.8rem, 8vw, 2.8rem);
     line-height: 1.1;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
   }
   
   .hero-subheadline {
     font-size: clamp(1rem, 4.5vw, 1.25rem);
     line-height: 1.4;
-    margin-bottom: var(--space-3xl);
+    margin-bottom: var(--space-xl);
     max-width: 100%;
   }
   
@@ -5560,13 +5563,13 @@ FINAL POLISH TO MATCH SCREENSHOTS
 
   .hero-headline {
     font-size: clamp(2.25rem, 10vw, 3rem);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
   }
 
   .hero-subheadline {
     font-size: clamp(1rem, 4vw, 1.125rem);
     max-width: 480px;
-    margin: 0 auto var(--space-3xl) auto;
+    margin: 0 auto var(--space-xl) auto;
   }
 
   .email-input-container {
@@ -5788,13 +5791,13 @@ FINAL POLISH TO MATCH SCREENSHOTS
   .hero-headline {
     font-size: clamp(1.6rem, 7vw, 2.2rem);
     line-height: 1.1;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
   }
   
   .hero-subheadline {
     font-size: 0.95rem;
     line-height: 1.4;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
   
   .section-headline {
