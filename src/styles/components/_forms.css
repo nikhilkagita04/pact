@@ -121,28 +121,50 @@
   
   .email-input-container {
     flex-direction: column;
-    padding: 6px;
-    gap: 6px;
+    padding: 4px;
+    gap: 4px;
     border-radius: var(--radius-lg);
     min-height: auto;
   }
   
   .email-input {
-    padding: 12px 16px;
-    font-size: 0.9375rem;
+    padding: 8px 12px;
+    font-size: 14px;
     text-align: left;
-    min-height: 40px;
+    min-height: 36px;
   }
   
   .cta-button {
     width: 100%;
-    padding: 12px 20px;
+    padding: 8px 16px;
     border-radius: var(--radius-lg);
-    font-size: 0.9375rem;
+    font-size: 14px;
   }
   
   .microcopy {
-    font-size: 0.75rem;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .email-input-container {
+    padding: 4px;
+    gap: 4px;
+  }
+  
+  .email-input {
+    padding: 8px 12px;
+    font-size: 14px;
+    min-height: 36px;
+  }
+  
+  .cta-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  
+  .microcopy {
+    font-size: 11px;
   }
 }
 
