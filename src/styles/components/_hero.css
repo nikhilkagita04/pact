@@ -69,7 +69,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: var(--space-5xl);
 }
 
 .hero-image {
@@ -133,13 +132,16 @@
 
 @media (max-width: 768px) {
   .hero-section {
-    padding-top: var(--space-5xl);
+    padding-top: var(--space-2xl);
     padding-bottom: var(--space-4xl);
   }
   
   .header-logo {
-    left: var(--space-xl);
-    top: var(--space-2xl);
+    position: relative;
+    top: auto;
+    left: auto;
+    text-align: center;
+    margin-bottom: var(--space-xl);
   }
   
   .pact-logo--medium {
@@ -147,15 +149,16 @@
   }
   
   .hero-visual {
-    display: none; /* Hide image on mobile */
+    padding-top: var(--space-xl);
+    margin-bottom: var(--space-2xl);
   }
   
   .hero-text {
-    padding-top: var(--space-lg);
+    padding-top: 0;
   }
   
   .hero-badge {
-    margin-top: var(--space-lg);
+    margin-top: 0;
     margin-left: auto;
     margin-right: auto;
     font-size: 11px;
