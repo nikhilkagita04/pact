@@ -115,17 +115,34 @@
 
 /* ===== Responsive Form Styles ===== */
 @media (max-width: 768px) {
+  .cta-form {
+    max-width: 100%;
+  }
+  
   .email-input-container {
     flex-direction: column;
+    padding: 6px;
+    gap: 6px;
+    border-radius: var(--radius-lg);
+    min-height: auto;
   }
   
   .email-input {
-    padding: var(--space-sm) var(--space-md);
-    font-size: var(--font-size-label-large);
+    padding: 12px 16px;
+    font-size: 0.9375rem;
+    text-align: left;
+    min-height: 40px;
+  }
+  
+  .cta-button {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: var(--radius-lg);
+    font-size: 0.9375rem;
   }
   
   .microcopy {
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
   }
 }
 

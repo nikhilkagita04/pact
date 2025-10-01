@@ -158,6 +158,8 @@
     margin-top: var(--space-lg);
     margin-left: auto;
     margin-right: auto;
+    font-size: var(--font-size-label-medium);
+    padding: var(--space-xs) var(--space-md);
   }
   
   .hero-headline {
