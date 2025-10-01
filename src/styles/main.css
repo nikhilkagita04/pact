@@ -1,0 +1,34 @@
+/* ============================================
+   PACT LANDING PAGE - MAIN STYLESHEET
+   ============================================
+   
+   This file imports all modular CSS files in the
+   correct order to build the complete stylesheet.
+   
+   Order matters:
+   1. Abstracts (variables)
+   2. Base (reset, typography)
+   3. Layout (containers, sections)
+   4. Components (buttons, forms, cards, etc.)
+   ============================================ */
+
+/* ===== 1. Abstracts ===== */
+@import 'abstracts/_variables.css';
+
+/* ===== 2. Base Styles ===== */
+@import 'base/_reset.css';
+@import 'base/_base.css';
+@import 'base/_typography.css';
+
+/* ===== 3. Layout ===== */
+@import 'layout/_container.css';
+@import 'layout/_sections.css';
+
+/* ===== 4. Components ===== */
+@import 'components/_buttons.css';
+@import 'components/_forms.css';
+@import 'components/_cards.css';
+@import 'components/_hero.css';
+@import 'components/_features.css';
+@import 'components/_faq.css';
+

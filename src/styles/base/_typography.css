@@ -1,0 +1,52 @@
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4 {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
+}
+
+h1, .h1 {
+  font-size: var(--font-size-display-large);
+  font-weight: var(--font-weight-regular);
+  max-width: 15ch;
+}
+
+h2, .h2 {
+  font-size: var(--font-size-display-medium);
+}
+
+h3, .h3 {
+  font-size: var(--font-size-headline-small);
+}
+
+h4, .h4 {
+  font-size: var(--font-size-title-medium);
+}
+
+p {
+  max-width: 75ch;
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color var(--duration-medium2) var(--easing-standard);
+}
+
+a:hover {
+  color: var(--accent-secondary);
+  text-decoration: underline;
+}
+
+strong {
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+}
+

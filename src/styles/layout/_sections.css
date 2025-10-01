@@ -1,0 +1,328 @@
+/* ============================================
+   SECTIONS
+   ============================================ */
+
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin-inline: auto;
+  margin-bottom: var(--space-3xl);
+}
+
+.section-headline {
+  margin-bottom: var(--space-md);
+}
+
+.section-subheadline {
+  font-size: var(--font-size-body-large);
+  color: var(--text-secondary);
+  max-width: 70ch;
+  margin-inline: auto;
+}
+
+/* Individual Section Backgrounds & Padding */
+.hero-section {
+  padding-block: 0;
+  background-color: var(--background-primary);
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-5xl);
+}
+
+.how-pact-works-section {
+  padding-block: var(--space-5xl);
+  background-color: var(--background-secondary);
+}
+
+.problem-section {
+  padding-block: var(--space-5xl);
+  background-color: var(--background-primary);
+}
+
+.faq-section {
+  padding-block: var(--space-5xl);
+  background-color: var(--background-secondary);
+}
+
+.final-cta-section {
+  position: relative;
+  padding-block: var(--space-5xl);
+  background-color: var(--background-primary);
+  overflow: hidden;
+}
+
+.final-cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 50%, rgba(26, 116, 107, 0.03), transparent 60%),
+    radial-gradient(circle at 70% 50%, rgba(229, 122, 93, 0.03), transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.final-cta-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.site-footer {
+  padding-block: var(--space-5xl);
+  background-color: var(--background-secondary);
+  border-top: 1px solid var(--surface-border);
+}
+
+
+
+
+/* ===== Problem Section ===== */
+.problem-header {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+/* ===== Final CTA Section ===== */
+.cta-content {
+  text-align: center;
+  max-width: 700px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta-headline {
+  font-size: var(--font-size-display-medium);
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+}
+
+.cta-subheadline {
+  font-size: var(--font-size-body-large);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-2xl);
+  line-height: var(--line-height-relaxed);
+}
+
+.final-cta-section .cta-form {
+  width: 100%;
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+/* ============================================
+   SITE FOOTER
+   ============================================ */
+
+.footer-copyright {
+  color: var(--text-tertiary);
+  font-size: var(--font-size-label-large);
+  text-align: center;
+  margin: 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-3xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.footer-brand {
+  max-width: 320px;
+}
+
+.footer-logo {
+  display: inline-block;
+  margin-bottom: var(--space-md);
+}
+
+.pact-logo--small {
+  font-size: 1.5rem;
+}
+
+.footer-description {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--font-size-body-medium);
+  line-height: var(--line-height-relaxed);
+}
+
+.footer-nav-social {
+  display: flex;
+  gap: var(--space-4xl);
+  align-items: flex-start;
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: var(--font-size-body-medium);
+  transition: color var(--duration-medium2) var(--easing-standard);
+}
+
+.footer-link:hover {
+  color: var(--accent-primary);
+}
+
+.footer-social {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.social-link {
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all var(--duration-medium2) var(--easing-standard);
+}
+
+.social-link:hover {
+  color: var(--accent-primary);
+  background-color: var(--accent-tertiary);
+  transform: translateY(-2px);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.footer-bottom {
+  padding-top: var(--space-xl);
+  text-align: center;
+  font-size: var(--font-size-label-large);
+  color: var(--text-tertiary);
+}
+
+/* ===== Responsive Layout Adjustments ===== */
+@media (max-width: 1024px) {
+  .hero-content {
+    gap: var(--space-3xl);
+  }
+  
+  .how-pact-works-grid {
+    gap: var(--space-3xl);
+  }
+  
+  .footer-content {
+    gap: var(--space-2xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .header-logo {
+    top: var(--space-lg);
+    left: var(--space-lg);
+  }
+  
+  .hero-section {
+    min-height: auto;
+    padding-top: var(--space-5xl);
+    padding-bottom: var(--space-4xl);
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  
+  .hero-visual {
+    order: -1;
+  }
+  
+  .how-pact-works-section,
+  .problem-section,
+  .faq-section,
+  .final-cta-section {
+    padding: var(--space-4xl) 0;
+  }
+  
+  .how-pact-works-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  
+  .feature-mockups-column {
+    position: relative;
+    top: 0;
+  }
+  
+  .problem-cards {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  
+  .section-header {
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+  
+  .footer-nav-social {
+    align-items: flex-start;
+  }
+  
+  .footer-links {
+    justify-content: flex-start;
+  }
+
+    .footer-content, .footer-nav-social {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding-top: var(--space-4xl);
+    padding-bottom: var(--space-3xl);
+  }
+  
+  .how-pact-works-section,
+  .problem-section,
+  .faq-section,
+  .final-cta-section {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .section-header {
+    margin-bottom: var(--space-xl);
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+}
+

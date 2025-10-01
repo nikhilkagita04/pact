@@ -1,0 +1,154 @@
+/* ============================================
+   FEATURES COMPONENT ('How it Works')
+   ============================================ */
+
+.how-pact-works-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4xl);
+  align-items: flex-start;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.feature-step {
+  padding: var(--space-xl) 0;
+  margin-bottom: var(--space-5xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.feature-step:last-child {
+    margin-bottom: 0;
+}
+
+.feature-step-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.feature-step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--accent-tertiary);
+  color: var(--accent-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-body-large);
+  flex-shrink: 0;
+}
+
+.feature-title {
+  margin: 0;
+}
+
+.feature-text {
+  margin-bottom: var(--space-xl);
+  max-width: 60ch;
+}
+
+.feature-mockup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--space-lg);
+}
+
+.feature-mockup img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Desktop alternating layout */
+@media (min-width: 1025px) {
+  .feature-step {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+    text-align: left;
+    margin-bottom: var(--space-6xl);
+  }
+  
+  .feature-step:nth-child(even) {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .feature-step:nth-child(even) .feature-content {
+    order: 2;
+  }
+  
+  .feature-step:nth-child(even) .feature-mockup {
+    order: 1;
+  }
+  
+  .feature-step-header {
+    justify-content: flex-start;
+  }
+  
+  .feature-text {
+    max-width: none;
+    margin-bottom: 0;
+  }
+  
+  .feature-mockup {
+    margin-top: 0;
+    justify-content: center;
+  }
+  
+  .feature-mockup img {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .how-pact-works-grid {
+    gap: var(--space-3xl);
+    max-width: 600px;
+  }
+  
+  .feature-step {
+    margin-bottom: var(--space-4xl);
+  }
+  
+  .feature-mockup img {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .how-pact-works-grid {
+    gap: var(--space-2xl);
+    max-width: 100%;
+  }
+  
+  .feature-step {
+    margin-bottom: var(--space-3xl);
+    padding: var(--space-lg) 0;
+  }
+  
+  .feature-step-number {
+    width: 36px;
+    height: 36px;
+    font-size: var(--font-size-body-medium);
+  }
+  
+  .feature-text {
+    margin-bottom: var(--space-lg);
+  }
+  
+  .feature-mockup img {
+    max-width: 160px;
+  }
+}
+

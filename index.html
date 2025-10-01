@@ -42,27 +42,14 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
     <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"></noscript>
     
     <!-- Critical CSS for above-the-fold content -->
-    <style>
-      /* Critical styles for immediate rendering */
-      body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background-color:#1a1f2e;color:#f8f6f0;line-height:1.6;margin:0;padding:0;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-      .hero-section{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(135deg,#1a1f2e 0%,#252b3d 50%,#2f3447 100%)}
-      .container{max-width:1200px;margin:0 auto;padding:0 2rem}
-      .hero-headline{font-size:clamp(2.5rem,5.5vw,4rem);font-weight:700;line-height:1.2;letter-spacing:-0.01em;margin-bottom:1.5rem}
-      .hero-subheadline{font-size:1.25rem;color:#e0ddd4;line-height:1.6;margin-bottom:2rem;max-width:600px}
-      .cta-button{background:linear-gradient(135deg,#4fd1c7,#38b2ac);color:#1a1f2e;border:none;padding:1.5rem 3rem;border-radius:9999px;font-size:1rem;font-weight:500;cursor:pointer;transition:all 300ms cubic-bezier(0.05,0.7,0.1,1);box-shadow:0 4px 6px -1px rgba(0,0,0,0.3);min-height:48px;display:inline-flex;align-items:center;justify-content:center}
-      .email-input{background:rgba(248,246,240,0.05);border:1px solid rgba(248,246,240,0.1);color:#f8f6f0;padding:1rem 1.5rem;border-radius:9999px;font-size:1rem;width:100%;max-width:400px;margin-right:1rem}
-      .email-input::placeholder{color:#c4c1b8}
-      .email-input-container{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
-      @media (max-width:768px){.container{padding:0 1.5rem}.email-input-container{flex-direction:column;align-items:stretch}.email-input{margin-right:0;margin-bottom:1rem}}
-    </style>
     
-    <link rel="stylesheet" href="src/styles.css">
+    <link rel="stylesheet" href="src/styles/main.css">
     
     <!-- Google Analytics (replace GA_MEASUREMENT_ID with your actual ID) -->
     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
@@ -169,21 +156,18 @@
             <a href="#" class="pact-logo pact-logo--medium">Pact.</a>
         </div>
         
-        <div class="hero-background">
-            <div class="hero-gradient"></div>
-            <div class="hero-particles"></div>
-        </div>
+        <div class="hero-background"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
                     <div class="hero-badge">
-                        <span class="badge-text">🚀 Launching Q4 2025 • Limited Early Access</span>
+                        <span class="badge-text">🚀 Limited Early Access</span>
                     </div>
                     <h1 class="hero-headline">
-                        Be the person everyone can count on.
+                        Your brain has too many tabs open. Close them with Pact.
                     </h1>
                     <p class="hero-subheadline">
-                        For the small, important promises that weave our lives together. Pact is a simple, beautiful space to share commitments with the people who matter most.
+                        Find your focus. Pact remembers every commitment, so you can be present.
                     </p>
                     <div class="cta-form" id="hero-cta">
                         <div class="email-input-container">
@@ -204,9 +188,12 @@
                                 Your email is safe—no spam, ever.
                             </div>
                         </div>
-                        <div id="email-hero-error" class="error-message" style="display: none; color: #ff7043; font-size: 0.875rem; margin-top: 0.5rem;" role="alert"></div>
-                        <div id="email-hero-success" class="success-message" style="display: none; color: #4ade80; font-size: 0.875rem; margin-top: 0.5rem;" role="status"></div>
+                        <div id="email-hero-error" class="error-message" style="display: none;" role="alert"></div>
+                        <div id="email-hero-success" class="success-message" style="display: none;" role="status"></div>
                     </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="assets/list/screen.png" alt="A preview of the Pact app interface showing commitments between people." class="hero-image">
                 </div>
             </div>
         </div>
@@ -216,48 +203,58 @@
     <section class="how-pact-works-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-headline">From a Simple Word to a Shared Action</h2>
+                <h2 class="section-headline">How Pact Strengthens Your Connections</h2>
                 <p class="section-subheadline">
-                    Pact is designed to feel less like a to-do list and more like a digital handshake. It’s a quiet, shared space to turn good intentions into reliable actions that strengthen your connections.
+                    Pact is designed to feel less like a demanding to-do list and more like a reliable digital handshake. It’s your quiet, shared space to turn good intentions into actions that build trust and deepen relationships.
                 </p>
             </div>
 
-            <div class="feature-step">
-                <div class="feature-mockup">
-                    <img src="assets/request/screen.png" alt="Pact request screen showing a new request from Emily" class="mockup-image" loading="lazy" width="320" height="640">
-                </div>
-                <div class="feature-text-content">
-                    <div class="feature-step-tag">Step 1</div>
-                    <h3 class="feature-headline">Capture Promises, Not Just Tasks</h3>
-                    <p class="feature-text">
-                        A simple promise made in conversation—"I'll pick up the soup"—is a thread that strengthens your connection. Pact gives those small promises a home, turning a casual, verbal agreement into a clear, shared commitment. It's not about assigning tasks; it's about creating a beautiful, mutual understanding that honors your word.
-                    </p>
-                </div>
-            </div>
+            <div class="how-pact-works-grid">
+                <div class="feature-steps-column">
+                    <div class="feature-step" data-step="1">
+                        <div class="feature-content">
+                            <div class="feature-step-header">
+                                <div class="feature-step-number">1</div>
+                                <h3 class="feature-title">Capture Every Promise, Effortlessly.</h3>
+                            </div>
+                            <p class="feature-text">
+                                That casual "I'll do it" often gets lost. Pact gives every small commitment—from picking up soup to sending a link—a shared, clear home. Turn verbal agreements into trackable actions with a simple tap.
+                            </p>
+                        </div>
+                        <div class="feature-mockup">
+                            <img src="assets/request/screen.png" alt="Pact request screen showing a new request from Emily" loading="lazy">
+                        </div>
+                    </div>
 
-            <div class="feature-step">
-                <div class="feature-mockup">
-                    <img src="assets/list/screen.png" alt="Pact list screen showing active and completed pacts" class="mockup-image" loading="lazy" width="320" height="640">
-                </div>
-                <div class="feature-text-content">
-                    <div class="feature-step-tag">Step 2</div>
-                    <h3 class="feature-headline">A Clear View, A Lighter Mind</h3>
-                    <p class="feature-text">
-                        See all your shared commitments in one simple, beautiful view. No more mental clutter or forgotten promises lost in text threads. Pact replaces the anxiety of remembering with the quiet confidence of a shared space, so you can focus on what really matters—being present for the people in your life.
-                    </p>
-                </div>
-            </div>
+                    <div class="feature-step" data-step="2">
+                        <div class="feature-content">
+                            <div class="feature-step-header">
+                                <div class="feature-step-number">2</div>
+                                <h3 class="feature-title">Your Shared View, A Lighter Mind.</h3>
+                            </div>
+                            <p class="feature-text">
+                                Stop juggling mental notes and endless text threads. See all your shared commitments in one simple, beautiful dashboard. Pact replaces anxiety with the calm confidence of knowing what's next.
+                            </p>
+                        </div>
+                        <div class="feature-mockup">
+                            <img src="assets/list/screen.png" alt="Pact list screen showing active and completed pacts" loading="lazy">
+                        </div>
+                    </div>
 
-            <div class="feature-step">
-                <div class="feature-mockup">
-                    <img src="assets/completed/screen.png" alt="Pact completion screen showing celebration when a pact is completed" class="mockup-image" loading="lazy" width="320" height="640">
-                </div>
-                <div class="feature-text-content">
-                    <div class="feature-step-tag">Step 3</div>
-                    <h3 class="feature-headline">Celebrate the Follow-Through</h3>
-                    <p class="feature-text">
-                        Turning your word into action is what builds trust. Pact makes completion a small, shared celebration. It’s more than just a checked-off item; it's a moment of connection that reinforces reliability, one follow-through at a time.
-                    </p>
+                    <div class="feature-step" data-step="3">
+                        <div class="feature-content">
+                            <div class="feature-step-header">
+                                <div class="feature-step-number">3</div>
+                                <h3 class="feature-title">Celebrate Every Follow-Through.</h3>
+                            </div>
+                            <p class="feature-text">
+                                Building trust is about showing up. Pact makes completing a commitment a shared moment of recognition—a satisfying affirmation that reinforces reliability and deepens your connection, every single time.
+                            </p>
+                        </div>
+                        <div class="feature-mockup">
+                            <img src="assets/completed/screen.png" alt="Pact completion screen showing celebration" loading="lazy">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -267,55 +264,40 @@
     <section class="problem-section">
         <div class="container">
             <div class="problem-header">
-                <h2 class="section-headline">Good Intentions Need a Better Home.</h2>
+                <h2 class="section-headline">We've All Felt the Disconnect.</h2>
                 <p class="section-subheadline">
-                    Our most important commitments get lost in noisy text threads and to-do lists designed for tasks, not trust. This creates quiet friction in the connections that matter most.
+                    Life gets busy, and good intentions get lost in translation. Without a shared space for commitments, the simple act of showing up for each other becomes a challenge.
                 </p>
             </div>
             <div class="problem-cards">
                 <div class="problem-card">
                     <div class="card-icon"><span class="material-icons-round">sync_disabled</span></div>
-                    <h3 class="card-title">The Mental Load of Good Intentions</h3>
-                    <p class="card-text">Juggling household tasks, family needs, and favors for friends is exhausting. The endless mental list of commitments made to people you care about means your best intentions get lost in the shuffle.</p>
+                    <h3 class="card-title">The Mental Overload of Our Promises</h3>
+                    <p class="card-text">Your brain can only hold so much. That endless mental list of promises—household tasks, family needs, favors for friends—becomes a heavy burden, causing your best intentions to get lost in the shuffle.</p>
                 </div>
                 <div class="problem-card">
                     <div class="card-icon"><span class="material-icons-round">textsms</span></div>
-                    <h3 class="card-title">The Friction of Following Up</h3>
-                    <p class="card-text">Sending a reminder text can feel awkward and demanding. Simple favors become sources of tension, and what should be easy collaboration turns into uncomfortable nagging.</p>
+                    <h3 class="card-title">The Awkwardness of Follow-Up Friction</h3>
+                    <p class="card-text">What should be a simple favor often leads to tension. The endless back-and-forth of reminder texts feels awkward and demanding, turning easy collaboration into uncomfortable nagging.</p>
                 </div>
                 <div class="problem-card">
                     <div class="card-icon"><span class="material-icons-round">sentiment_dissatisfied</span></div>
-                    <h3 class="card-title">The Quiet Disappointment</h3>
-                    <p class="card-text">That sinking feeling when a small commitment is forgotten. It wasn't just about the task—it was a missed opportunity to connect and show you're on the same team.</p>
+                    <h3 class="card-title">The Sting of a Dropped Thread</h3>
+                    <p class="card-text">That familiar sinking feeling when a small promise is forgotten. It's more than just a missed task—it's a lost opportunity to connect, to show you care, and to reinforce that you're truly on the same team.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Founder's Note Section -->
-    <!-- <section class="founder-section">
-        <div class="container">
-            <div class="founder-card">
-                <div class="founder-profile">
-                    <img src="assets/founder.jpg" alt="Nikhil Kagita, Builder of Pact" class="founder-avatar" loading="lazy">
-                    <div class="founder-signature">
-                        <div class="founder-name">Nikhil Kagita</div>
-                        <div class="founder-title"><a href="https://www.linkedin.com/in/nikhil-kagita/" target="_blank" rel="noopener" style="color: var(--accent-primary); text-decoration: none;" alt="Nikhil Kagita's LinkedIn Profile">LinkedIn</a></div>
-                    </div>
-                </div>
-                <div class="founder-content">
-                    <h2 class="founder-headline">A Note from the Builder</h2>
-                    <p class="founder-text">
-                        "I'm building Pact because I believe trust is the foundation of every great relationship, and trust is built on kept promises. In our busy lives, small commitments—the threads that weave our relationships together—get lost in texts and mental to-do lists, creating quiet friction. I wanted to create a more intentional way to handle these commitments, something that feels less like a task manager and more like a digital handshake. Pact is my answer: a relationship app designed to replace the anxiety of forgetting with the quiet confidence of following through, helping us spend less energy managing commitments and more energy strengthening the connections that matter most."
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <!-- FAQ Section -->
     <section class="faq-section" id="faq-section">
         <div class="container">
+            <div class="section-header">
+                <h2 class="section-headline">Frequently Asked Questions</h2>
+                <p class="section-subheadline">
+                    Everything you need to know about Pact. Can't find the answer you're looking for? Reach out to us anytime.
+                </p>
+            </div>
             <div class="faq-list">
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
@@ -387,8 +369,8 @@
                             Your email is safe—no spam, ever.
                         </div>
                     </div>
-                    <div id="email-final-error" class="error-message" style="display: none; color: #ff7043; font-size: 0.875rem; margin-top: 0.5rem;" role="alert"></div>
-                    <div id="email-final-success" class="success-message" style="display: none; color: #4ade80; font-size: 0.875rem; margin-top: 0.5rem;" role="status"></div>
+                    <div id="email-final-error" class="error-message" style="display: none;" role="alert"></div>
+                    <div id="email-final-success" class="success-message" style="display: none;" role="status"></div>
                 </div>
             </div>
         </div>
@@ -483,5 +465,53 @@
     </script>
 
     <script src="src/script.js"></script>
+
+<script>
+  // Add scroll-based animations
+  const animatedElements = document.querySelectorAll('.feature-step, .problem-card, .faq-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  animatedElements.forEach(element => {
+    observer.observe(element);
+  });
+
+  // Dynamic image swapping for "How Pact Works" section
+  const featureSteps = document.querySelectorAll('.feature-step');
+  const mockupImages = document.querySelectorAll('.mockup-image');
+
+  const imageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const stepNumber = entry.target.getAttribute('data-step');
+      const activeImage = document.querySelector(`.mockup-image[data-step="${stepNumber}"]`);
+      
+      if (entry.isIntersecting) {
+        // Add active class to corresponding image and feature step
+        mockupImages.forEach(img => img.classList.remove('active'));
+        featureSteps.forEach(step => step.classList.remove('is-active'));
+        
+        if (activeImage) {
+          activeImage.classList.add('active');
+        }
+        entry.target.classList.add('is-active');
+      }
+    });
+  }, {
+    threshold: 0.6, // Trigger when 60% of the element is visible
+    rootMargin: '-20% 0px -20% 0px'
+  });
+
+  featureSteps.forEach(step => {
+    imageObserver.observe(step);
+  });
+</script>
 </body>
 </html>
