@@ -44,4 +44,20 @@
         <priority>0.7</priority>
     </url>
     
+    <!-- Blog Index Page -->
+    <url>
+        <loc>https://pact.llc/blog.html</loc>
+        <lastmod>2025-10-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Blog Post: Cognitive Science -->
+    <url>
+        <loc>https://pact.llc/blog/cognitive-science-forgotten-promises.html</loc>
+        <lastmod>2025-10-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
 </urlset>

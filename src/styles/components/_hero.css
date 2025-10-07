@@ -110,7 +110,31 @@
   position: absolute;
   top: var(--space-xl);
   left: var(--space-2xl);
+  right: var(--space-2xl);
   z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-nav {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.nav-link {
+  font-size: var(--font-size-body-medium);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--duration-medium2) var(--easing-standard);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-xs);
+}
+
+.nav-link:hover {
+  color: var(--accent-primary);
+  text-decoration: none;
 }
 
 .pact-logo {
@@ -196,8 +220,16 @@
     position: relative;
     top: auto;
     left: auto;
+    right: auto;
+    flex-direction: row;
+    justify-content: space-between;
     text-align: center;
     margin-bottom: var(--space-xl);
+    padding: 0 var(--space-md);
+  }
+  
+  .header-nav {
+    justify-content: flex-end;
   }
   
   .pact-logo--medium {
