@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Splash/starting theme. Compose owns the real theme post-setContent. -->
+    <style name="Theme.Pact.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#0A0F14</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.Pact</item>
+    </style>
+
+    <style name="Theme.Pact" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor" tools:targetApi="21">@android:color/transparent</item>
+        <item name="android:navigationBarColor" tools:targetApi="21">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">false</item>
+    </style>
+</resources>

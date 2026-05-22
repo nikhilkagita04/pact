@@ -1,0 +1,26 @@
+# Gradle
+.gradle/
+build/
+local.properties
+*.iml
+.kotlin/
+
+# Android Studio / IntelliJ
+.idea/
+*.swp
+captures/
+
+# Generated build outputs
+app/build/
+app/release/
+
+# Native build outputs
+.cxx/
+
+# Generated files
+bin/
+gen/
+out/
+
+# OS
+.DS_Store
