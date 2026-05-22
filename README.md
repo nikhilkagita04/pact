@@ -47,8 +47,9 @@ Pact is a small product surface with several real implementations behind it. Eac
 | --- | --- | --- |
 | **Landing site** | [`index.html`](index.html), [`blog/`](blog/), [`assets/`](assets/) | Static HTML/CSS + Firebase (live at [pact.llc](https://pact.llc)) |
 | **Native Android app** | [`android/`](android/) | Kotlin · Jetpack Compose · Material 3 |
-| **Cross-platform mobile** | [`mobile/`](mobile/) | Flutter · Riverpod (earlier exploration) |
 | **Backend API** | [`backend/`](backend/) | FastAPI · Firebase Auth + Firestore |
+
+An earlier Flutter spike lives in [`mobile/`](mobile/) — kept for reference but superseded by the native Android prototype above.
 
 ## 📱 Native Android app
 
@@ -88,7 +89,7 @@ Requires JDK 17 (Android Studio Iguana+ ships it) and an emulator or device on A
 The marketing site is what's live at [pact.llc](https://pact.llc) — waitlist capture, blog, FAQ.
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/nikhilkagita04/pact.git
 cd pact
 npm install
 firebase login
@@ -100,14 +101,14 @@ Deploys with `npm run deploy` (production) or `npm run preview` (preview channel
 
 ## 🔧 Backend
 
-`backend/` is a FastAPI service backed by Firebase Auth and Firestore — pact CRUD, people, and the request lifecycle. `cd backend && ./run_tests.sh` runs the suite.
+[`backend/`](backend/) is a FastAPI service backed by Firebase Auth and Firestore — pact CRUD, people, and the request lifecycle. See [`backend/README.md`](backend/README.md) for setup and the test suite.
 
 ## 📁 Project layout
 
 ```
 ├── android/         # Native Kotlin / Compose prototype
 ├── backend/         # FastAPI service (Firebase Auth + Firestore)
-├── mobile/          # Flutter exploration (Riverpod)
+├── mobile/          # Earlier Flutter spike (kept for reference)
 ├── assets/          # Images, icons, screenshots
 ├── blog/            # Blog posts (static HTML)
 ├── docs/            # Design tokens, setup notes
