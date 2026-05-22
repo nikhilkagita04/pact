@@ -53,20 +53,7 @@ An earlier Flutter spike lives in [`mobile/`](mobile/) — kept for reference bu
 
 ## 📱 Native Android app
 
-A Compose prototype that brings the pact.llc design language to a working app. Six screens covered end-to-end with a single in-memory repository — no backend wiring required to explore the flows.
-
-<table>
-  <tr>
-    <td align="center" width="33%"><img src="assets/android-app/01-my-pacts.png" width="100%" alt="My Pacts" /><br/><sub><b>My Pacts</b><br/>Tabbed list with streak callouts</sub></td>
-    <td align="center" width="33%"><img src="assets/android-app/02-new-pact.png" width="100%" alt="New Pact" /><br/><sub><b>New Pact</b><br/>Who, what, who's doing it</sub></td>
-    <td align="center" width="33%"><img src="assets/android-app/03-incoming-request.png" width="100%" alt="Incoming request" /><br/><sub><b>Incoming request</b><br/>Accept / decline modal</sub></td>
-  </tr>
-  <tr>
-    <td align="center" width="33%"><img src="assets/android-app/04-pact-detail.png" width="100%" alt="Pact detail" /><br/><sub><b>Pact detail</b><br/>Timeline + mark complete</sub></td>
-    <td align="center" width="33%"><img src="assets/android-app/05-pact-complete.png" width="100%" alt="Pact complete" /><br/><sub><b>Completion</b><br/>Spring-in celebration moment</sub></td>
-    <td align="center" width="33%"><img src="assets/android-app/06-profile.png" width="100%" alt="Profile" /><br/><sub><b>Profile</b><br/>People and counts</sub></td>
-  </tr>
-</table>
+A Compose prototype that brings the pact.llc design language to a working app. Six screens covered end-to-end ([screenshots above](#-app-preview), full set in [`assets/android-app/`](assets/android-app/)) with a single in-memory repository — no backend wiring required to explore the flows.
 
 A few choices worth flagging:
 
