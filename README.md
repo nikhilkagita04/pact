@@ -8,7 +8,18 @@
 
 Turn good intentions into reliable actions. Pact helps you keep promises to partners, roommates, family, and friends—strengthening trust through follow-through.
 
-**🌐 Live Site**: [pact.llc](https://pact.llc) | **🚀 Status**: Launching Q4 2025
+**🌐 Live Site**: [pact.llc](https://pact.llc)
+
+## 📱 App preview
+
+<p align="center">
+  <img src="assets/android-app/01-my-pacts.png" width="22%" alt="My Pacts list" />
+  <img src="assets/android-app/03-incoming-request.png" width="22%" alt="Incoming request from Emily" />
+  <img src="assets/android-app/05-pact-complete.png" width="22%" alt="Pact Complete celebration" />
+  <img src="assets/android-app/06-profile.png" width="22%" alt="Profile" />
+</p>
+
+<p align="center"><sub>Native Android prototype, built in Kotlin and Jetpack Compose. See <a href="#-native-android-app">all six screens</a> and <a href="#building-and-running">build instructions</a> below.</sub></p>
 
 ## 💡 Our "Why": The Story Behind Pact
 
@@ -28,63 +39,83 @@ We're not just building another productivity app. We are building a relationship
 
 We envision a world where our best intentions are effortlessly translated into actions, where "I promise" is always followed by "I did," and where technology helps us be more present, more reliable, and more connected to the people in our lives.
 
-## 🚀 Quick Start
+## 🗂️ What's in this repo
+
+Pact is a small product surface with several real implementations behind it. Each lives in its own top-level folder, so a reviewer can dip into the layer they care about without spelunking:
+
+| Pillar | Path | Stack |
+| --- | --- | --- |
+| **Landing site** | [`index.html`](index.html), [`blog/`](blog/), [`assets/`](assets/) | Static HTML/CSS + Firebase (live at [pact.llc](https://pact.llc)) |
+| **Native Android app** | [`android/`](android/) | Kotlin · Jetpack Compose · Material 3 |
+| **Cross-platform mobile** | [`mobile/`](mobile/) | Flutter · Riverpod (earlier exploration) |
+| **Backend API** | [`backend/`](backend/) | FastAPI · Firebase Auth + Firestore |
+
+## 📱 Native Android app
+
+A Compose prototype that brings the pact.llc design language to a working app. Six screens covered end-to-end with a single in-memory repository — no backend wiring required to explore the flows.
+
+<table>
+  <tr>
+    <td align="center" width="33%"><img src="assets/android-app/01-my-pacts.png" width="100%" alt="My Pacts" /><br/><sub><b>My Pacts</b><br/>Tabbed list with streak callouts</sub></td>
+    <td align="center" width="33%"><img src="assets/android-app/02-new-pact.png" width="100%" alt="New Pact" /><br/><sub><b>New Pact</b><br/>Who, what, who's doing it</sub></td>
+    <td align="center" width="33%"><img src="assets/android-app/03-incoming-request.png" width="100%" alt="Incoming request" /><br/><sub><b>Incoming request</b><br/>Accept / decline modal</sub></td>
+  </tr>
+  <tr>
+    <td align="center" width="33%"><img src="assets/android-app/04-pact-detail.png" width="100%" alt="Pact detail" /><br/><sub><b>Pact detail</b><br/>Timeline + mark complete</sub></td>
+    <td align="center" width="33%"><img src="assets/android-app/05-pact-complete.png" width="100%" alt="Pact complete" /><br/><sub><b>Completion</b><br/>Spring-in celebration moment</sub></td>
+    <td align="center" width="33%"><img src="assets/android-app/06-profile.png" width="100%" alt="Profile" /><br/><sub><b>Profile</b><br/>People and counts</sub></td>
+  </tr>
+</table>
+
+A few choices worth flagging:
+
+- **Motion as emotional payoff.** The completion screen is the only place that springs. Restraint elsewhere lets that moment land.
+- **One source of truth.** A single `PactRepository` holds in-memory `StateFlow`s for pacts and people — every screen subscribes, no prop drilling, persistence layer slots in cleanly later.
+- **Design tokens, not hardcoded colors.** `LocalPactExtras` exposes the warm neutrals (avatar tints, surfaces) that Material 3 doesn't model out of the box, while the standard color scheme drives the rest.
+
+### Building and running
+
+```bash
+cd android
+./gradlew :app:assembleDebug
+~/Library/Android/sdk/platform-tools/adb install -r app/build/outputs/apk/debug/app-debug.apk
+```
+
+Requires JDK 17 (Android Studio Iguana+ ships it) and an emulator or device on API 29+.
+
+## 🌐 Landing site
+
+The marketing site is what's live at [pact.llc](https://pact.llc) — waitlist capture, blog, FAQ.
 
 ```bash
 git clone <repository-url>
 cd pact
-./scripts/setup.sh  # Interactive setup
-```
-
-Or manually:
-```bash
 npm install
 firebase login
 firebase use <your-project-id>
 npm run dev
 ```
 
-## 📁 Project Structure
+Deploys with `npm run deploy` (production) or `npm run preview` (preview channel). Firebase config lives in `index.html`; copy `env.example` to `.env` for local secrets. See [`docs/FIREBASE_SETUP.md`](docs/FIREBASE_SETUP.md) for the full setup.
+
+## 🔧 Backend
+
+`backend/` is a FastAPI service backed by Firebase Auth and Firestore — pact CRUD, people, and the request lifecycle. `cd backend && ./run_tests.sh` runs the suite.
+
+## 📁 Project layout
 
 ```
-├── assets/          # Images, icons, manifest
-├── src/             # JavaScript and CSS
-├── scripts/         # Setup and maintenance tools
-├── docs/            # Documentation
-├── index.html       # Main landing page
-└── firebase.json    # Firebase configuration
+├── android/         # Native Kotlin / Compose prototype
+├── backend/         # FastAPI service (Firebase Auth + Firestore)
+├── mobile/          # Flutter exploration (Riverpod)
+├── assets/          # Images, icons, screenshots
+├── blog/            # Blog posts (static HTML)
+├── docs/            # Design tokens, setup notes
+├── scripts/         # Setup and maintenance tooling
+├── src/             # Landing-site JS and CSS
+├── index.html       # Landing page
+└── firebase.json    # Firebase project config
 ```
-
-## 🔧 Development
-
-```bash
-npm run dev          # Start development server
-npm run deploy       # Deploy to production
-npm run preview      # Deploy to preview channel
-./scripts/maintenance.sh  # Interactive maintenance menu
-```
-
-## ⚙️ Configuration
-
-1. **Firebase Config**: Update `index.html` lines 681-689 with your Firebase project config
-2. **Environment**: Copy `env.example` to `.env` and fill in values
-3. **Deploy Rules**: `firebase deploy --only firestore`
-
-## 📊 Features
-
-- **Email Signup**: Captures emails to Firestore `waitlist` collection
-- **Analytics**: Firebase Analytics tracking
-- **Security**: Validated email-only database writes
-- **Performance**: Optimized loading and caching
-- **Responsive**: Mobile-first design
-
-## 🐛 Troubleshooting
-
-- **Firebase not configured**: Check config in `index.html`
-- **Email signup fails**: Check browser console and Firestore rules
-- **Deploy fails**: Ensure `firebase login` and correct project selection
-
-**Documentation**: See `docs/FIREBASE_SETUP.md` for detailed setup
 
 ---
 
